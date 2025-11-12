@@ -1,0 +1,4056 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4685d21126e9fa2a5d0a6afab5c7c302 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 50px; right: 50px; width: 240px; height: 180px; 
+            background-color: white; border:2px solid grey; z-index:9999; font-size:13px;
+            padding: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+<p><b>📍 MAP 1: School Density</b></p>
+<p><b>Color = Schools per 1000 Children:</b></p>
+<p><i class="fa fa-circle" style="color:red"></i> &lt; 0.5 (Critical Desert)</p>
+<p><i class="fa fa-circle" style="color:orange"></i> 0.5-1.0 (Moderate Need)</p>
+<p><i class="fa fa-circle" style="color:yellow"></i> 1.0-2.0 (Adequate)</p>
+<p><i class="fa fa-circle" style="color:green"></i> &gt; 2.0 (Good Coverage)</p>
+<p style="font-size:11px; color:#666; margin-top:5px;">Circle size is fixed</p>
+</div>
+    
+            <div class="folium-map" id="map_4685d21126e9fa2a5d0a6afab5c7c302" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4685d21126e9fa2a5d0a6afab5c7c302 = L.map(
+                "map_4685d21126e9fa2a5d0a6afab5c7c302",
+                {
+                    center: [-1.2921, 36.8219],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1893c6e61c221c708d08c4cb2b7a7695 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1893c6e61c221c708d08c4cb2b7a7695.addTo(map_4685d21126e9fa2a5d0a6afab5c7c302);
+        
+    
+            var feature_group_6a294ae64bde8e0101107f7023056267 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_64cae031de1e4a47167aa64942b35e5d = L.circleMarker(
+                [-1.25, 36.875],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_d052a1b0c46f62e846fc4d328482a9dc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_998139dab977e97c842674d4810fe816 = $(`<div id="html_998139dab977e97c842674d4810fe816" style="width: 100.0%; height: 100.0%;">         <b>BABA DOGO</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 2<br>         School-Age Pop: 468<br>         Schools per 1000: 4.27<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 245<br>         Infrastructure Stress: 38.9         </div>`)[0];
+                popup_d052a1b0c46f62e846fc4d328482a9dc.setContent(html_998139dab977e97c842674d4810fe816);
+            
+        
+
+        circle_marker_64cae031de1e4a47167aa64942b35e5d.bindPopup(popup_d052a1b0c46f62e846fc4d328482a9dc)
+        ;
+
+        
+    
+    
+            circle_marker_64cae031de1e4a47167aa64942b35e5d.bindTooltip(
+                `<div>
+                     BABA DOGO: 4.27 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2c8a8e017754aade83906ee3c72588dd = L.circleMarker(
+                [-1.277, 36.868],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_95a6424ef0dcc65d63c1356d5615b66d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1852df85ef418eeac33bc617f653c46d = $(`<div id="html_1852df85ef418eeac33bc617f653c46d" style="width: 100.0%; height: 100.0%;">         <b>BAHATI</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 10<br>         School-Age Pop: 10,935<br>         Schools per 1000: 0.91<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 5,727<br>         Infrastructure Stress: 40.1         </div>`)[0];
+                popup_95a6424ef0dcc65d63c1356d5615b66d.setContent(html_1852df85ef418eeac33bc617f653c46d);
+            
+        
+
+        circle_marker_2c8a8e017754aade83906ee3c72588dd.bindPopup(popup_95a6424ef0dcc65d63c1356d5615b66d)
+        ;
+
+        
+    
+    
+            circle_marker_2c8a8e017754aade83906ee3c72588dd.bindTooltip(
+                `<div>
+                     BAHATI: 0.91 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4cd2e0e1d3a0a39947b03b3b0003bbe7 = L.circleMarker(
+                [-1.28, 36.88],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f9dd5f9a427bd600b1f971b9026cd006 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_663a10b3d9c6429c7cb2dd312728abea = $(`<div id="html_663a10b3d9c6429c7cb2dd312728abea" style="width: 100.0%; height: 100.0%;">         <b>BURUBURU</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 1<br>         School-Age Pop: 519<br>         Schools per 1000: 1.93<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 272<br>         Infrastructure Stress: 29.4         </div>`)[0];
+                popup_f9dd5f9a427bd600b1f971b9026cd006.setContent(html_663a10b3d9c6429c7cb2dd312728abea);
+            
+        
+
+        circle_marker_4cd2e0e1d3a0a39947b03b3b0003bbe7.bindPopup(popup_f9dd5f9a427bd600b1f971b9026cd006)
+        ;
+
+        
+    
+    
+            circle_marker_4cd2e0e1d3a0a39947b03b3b0003bbe7.bindTooltip(
+                `<div>
+                     BURUBURU: 1.93 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c01775d83ada9017fe4232bd2214c429 = L.circleMarker(
+                [-1.2453333333333334, 36.89733333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f7c77bc524dae9e9e2e8c7d2ece0f131 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a82e5d18c1c0931ac4dcc552d8c102c = $(`<div id="html_0a82e5d18c1c0931ac4dcc552d8c102c" style="width: 100.0%; height: 100.0%;">         <b>DANDORA</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 45<br>         School-Age Pop: 31,160<br>         Schools per 1000: 1.44<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 16,320<br>         Infrastructure Stress: 28.0         </div>`)[0];
+                popup_f7c77bc524dae9e9e2e8c7d2ece0f131.setContent(html_0a82e5d18c1c0931ac4dcc552d8c102c);
+            
+        
+
+        circle_marker_c01775d83ada9017fe4232bd2214c429.bindPopup(popup_f7c77bc524dae9e9e2e8c7d2ece0f131)
+        ;
+
+        
+    
+    
+            circle_marker_c01775d83ada9017fe4232bd2214c429.bindTooltip(
+                `<div>
+                     DANDORA: 1.44 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_775cd112c96f2eaaec7317a1071dca6b = L.circleMarker(
+                [-1.2453333333333334, 36.89733333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_cadcbb9ef650cc8a2638ac1e84f6006e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5a817f3e65f2740be7bf130fd6fda18 = $(`<div id="html_f5a817f3e65f2740be7bf130fd6fda18" style="width: 100.0%; height: 100.0%;">         <b>DANDORA</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 45<br>         School-Age Pop: 31,160<br>         Schools per 1000: 1.44<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 16,320<br>         Infrastructure Stress: 28.0         </div>`)[0];
+                popup_cadcbb9ef650cc8a2638ac1e84f6006e.setContent(html_f5a817f3e65f2740be7bf130fd6fda18);
+            
+        
+
+        circle_marker_775cd112c96f2eaaec7317a1071dca6b.bindPopup(popup_cadcbb9ef650cc8a2638ac1e84f6006e)
+        ;
+
+        
+    
+    
+            circle_marker_775cd112c96f2eaaec7317a1071dca6b.bindTooltip(
+                `<div>
+                     DANDORA: 1.44 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eedf3386c3d3dc19e26a5939cec8c05c = L.circleMarker(
+                [-1.29, 36.89],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_48003742efc94eda17a39a9bc4ada8dd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2cb079961df03fa043480b37af5ec5a3 = $(`<div id="html_2cb079961df03fa043480b37af5ec5a3" style="width: 100.0%; height: 100.0%;">         <b>DOONHOLM</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 1<br>         School-Age Pop: 3,003<br>         Schools per 1000: 0.33<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 1,573<br>         Infrastructure Stress: 79.2         </div>`)[0];
+                popup_48003742efc94eda17a39a9bc4ada8dd.setContent(html_2cb079961df03fa043480b37af5ec5a3);
+            
+        
+
+        circle_marker_eedf3386c3d3dc19e26a5939cec8c05c.bindPopup(popup_48003742efc94eda17a39a9bc4ada8dd)
+        ;
+
+        
+    
+    
+            circle_marker_eedf3386c3d3dc19e26a5939cec8c05c.bindTooltip(
+                `<div>
+                     DOONHOLM: 0.33 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c740dbe69254a1976c5251d45a78e170 = L.circleMarker(
+                [-1.27, 36.85181818181818],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_c2d8699717e8aa9deeb1c501fe1a0467 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_25dada712791db4c4ffe2b7acb0895e7 = $(`<div id="html_25dada712791db4c4ffe2b7acb0895e7" style="width: 100.0%; height: 100.0%;">         <b>EASTLEIGH NORTH</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 11<br>         School-Age Pop: 14,883<br>         Schools per 1000: 0.74<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 7,795<br>         Infrastructure Stress: 68.0         </div>`)[0];
+                popup_c2d8699717e8aa9deeb1c501fe1a0467.setContent(html_25dada712791db4c4ffe2b7acb0895e7);
+            
+        
+
+        circle_marker_c740dbe69254a1976c5251d45a78e170.bindPopup(popup_c2d8699717e8aa9deeb1c501fe1a0467)
+        ;
+
+        
+    
+    
+            circle_marker_c740dbe69254a1976c5251d45a78e170.bindTooltip(
+                `<div>
+                     EASTLEIGH NORTH: 0.74 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5f598ccea2aed6add68af0502d8fdbac = L.circleMarker(
+                [-1.2771428571428571, 36.864285714285714],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_8a8f947d5e8dc7e91ca337a3b40b92f8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9c4add5098688f35b8c79f43d63f9a83 = $(`<div id="html_9c4add5098688f35b8c79f43d63f9a83" style="width: 100.0%; height: 100.0%;">         <b>EASTLEIGH SOUTH</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 14<br>         School-Age Pop: 4,825<br>         Schools per 1000: 2.90<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,527<br>         Infrastructure Stress: 19.6         </div>`)[0];
+                popup_8a8f947d5e8dc7e91ca337a3b40b92f8.setContent(html_9c4add5098688f35b8c79f43d63f9a83);
+            
+        
+
+        circle_marker_5f598ccea2aed6add68af0502d8fdbac.bindPopup(popup_8a8f947d5e8dc7e91ca337a3b40b92f8)
+        ;
+
+        
+    
+    
+            circle_marker_5f598ccea2aed6add68af0502d8fdbac.bindTooltip(
+                `<div>
+                     EASTLEIGH SOUTH: 2.90 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_469fe0fab38a0b8325eb05950dfaeb40 = L.circleMarker(
+                [-1.2771428571428571, 36.864285714285714],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_6514082d733266f4c55b165cdff1065f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5cb0bb067767a5823e45124585c8ba7 = $(`<div id="html_b5cb0bb067767a5823e45124585c8ba7" style="width: 100.0%; height: 100.0%;">         <b>EASTLEIGH SOUTH</b><br>         Division: PUMWANI<br>         Constituency: WESTLANDS<br>         Schools: 14<br>         School-Age Pop: 4,825<br>         Schools per 1000: 2.90<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,527<br>         Infrastructure Stress: 19.6         </div>`)[0];
+                popup_6514082d733266f4c55b165cdff1065f.setContent(html_b5cb0bb067767a5823e45124585c8ba7);
+            
+        
+
+        circle_marker_469fe0fab38a0b8325eb05950dfaeb40.bindPopup(popup_6514082d733266f4c55b165cdff1065f)
+        ;
+
+        
+    
+    
+            circle_marker_469fe0fab38a0b8325eb05950dfaeb40.bindTooltip(
+                `<div>
+                     EASTLEIGH SOUTH: 2.90 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2f9c0be14230467d38eb8a19f3f2433 = L.circleMarker(
+                [-1.2771428571428571, 36.864285714285714],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_7d81e7548ed47c822b42fe39f19055d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_18910738e595c088f7fa4f0031022e5a = $(`<div id="html_18910738e595c088f7fa4f0031022e5a" style="width: 100.0%; height: 100.0%;">         <b>EASTLEIGH SOUTH</b><br>         Division: PUMWANI<br>         Constituency: DAGORETTI<br>         Schools: 14<br>         School-Age Pop: 4,825<br>         Schools per 1000: 2.90<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,527<br>         Infrastructure Stress: 19.6         </div>`)[0];
+                popup_7d81e7548ed47c822b42fe39f19055d2.setContent(html_18910738e595c088f7fa4f0031022e5a);
+            
+        
+
+        circle_marker_b2f9c0be14230467d38eb8a19f3f2433.bindPopup(popup_7d81e7548ed47c822b42fe39f19055d2)
+        ;
+
+        
+    
+    
+            circle_marker_b2f9c0be14230467d38eb8a19f3f2433.bindTooltip(
+                `<div>
+                     EASTLEIGH SOUTH: 2.90 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e538f57c37bcde55a46ecccf6dcec79f = L.circleMarker(
+                [-1.293157894736842, 36.92473684210527],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_7aa80c884e51b12ba3b733efa07e0533 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e6b74468e1878e3a5eb6dc68aa3f9bdf = $(`<div id="html_e6b74468e1878e3a5eb6dc68aa3f9bdf" style="width: 100.0%; height: 100.0%;">         <b>EMBAKASI</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 19<br>         School-Age Pop: 6,851<br>         Schools per 1000: 2.77<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 3,588<br>         Infrastructure Stress: 18.8         </div>`)[0];
+                popup_7aa80c884e51b12ba3b733efa07e0533.setContent(html_e6b74468e1878e3a5eb6dc68aa3f9bdf);
+            
+        
+
+        circle_marker_e538f57c37bcde55a46ecccf6dcec79f.bindPopup(popup_7aa80c884e51b12ba3b733efa07e0533)
+        ;
+
+        
+    
+    
+            circle_marker_e538f57c37bcde55a46ecccf6dcec79f.bindTooltip(
+                `<div>
+                     EMBAKASI: 2.77 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_51792a149a5d746bdec9a74c8743fabe = L.circleMarker(
+                [-1.31, 36.84],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f6542d1c49fd5282f82503958d0c50b9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_873d1960282064f694fcca4b787308d9 = $(`<div id="html_873d1960282064f694fcca4b787308d9" style="width: 100.0%; height: 100.0%;">         <b>FUATANYAYO</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 1<br>         School-Age Pop: 109<br>         Schools per 1000: 9.16<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 57<br>         Infrastructure Stress: 19.0         </div>`)[0];
+                popup_f6542d1c49fd5282f82503958d0c50b9.setContent(html_873d1960282064f694fcca4b787308d9);
+            
+        
+
+        circle_marker_51792a149a5d746bdec9a74c8743fabe.bindPopup(popup_f6542d1c49fd5282f82503958d0c50b9)
+        ;
+
+        
+    
+    
+            circle_marker_51792a149a5d746bdec9a74c8743fabe.bindTooltip(
+                `<div>
+                     FUATANYAYO: 9.16 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e620464d60bdf78f0e1b2a5a013ca44 = L.circleMarker(
+                [-1.2015686274509805, 36.902156862745095],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_575ebef172f7bb6600238bfac583b601 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_da53d3e81f5b56ebbfa853a7b1be6571 = $(`<div id="html_da53d3e81f5b56ebbfa853a7b1be6571" style="width: 100.0%; height: 100.0%;">         <b>GITHURAI</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 51<br>         School-Age Pop: 14,935<br>         Schools per 1000: 3.41<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 7,822<br>         Infrastructure Stress: 18.7         </div>`)[0];
+                popup_575ebef172f7bb6600238bfac583b601.setContent(html_da53d3e81f5b56ebbfa853a7b1be6571);
+            
+        
+
+        circle_marker_0e620464d60bdf78f0e1b2a5a013ca44.bindPopup(popup_575ebef172f7bb6600238bfac583b601)
+        ;
+
+        
+    
+    
+            circle_marker_0e620464d60bdf78f0e1b2a5a013ca44.bindTooltip(
+                `<div>
+                     GITHURAI: 3.41 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_724bfc69d6def6d1233d40d9c69c1efe = L.circleMarker(
+                [-1.31, 36.8],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_ea3198634bc24e2ba08f438177484494 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89c6f29242cbd3630149ce45a8180e07 = $(`<div id="html_89c6f29242cbd3630149ce45a8180e07" style="width: 100.0%; height: 100.0%;">         <b>GOLF COURSE</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 1<br>         School-Age Pop: 359<br>         Schools per 1000: 2.79<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 188<br>         Infrastructure Stress: 40.3         </div>`)[0];
+                popup_ea3198634bc24e2ba08f438177484494.setContent(html_89c6f29242cbd3630149ce45a8180e07);
+            
+        
+
+        circle_marker_724bfc69d6def6d1233d40d9c69c1efe.bindPopup(popup_ea3198634bc24e2ba08f438177484494)
+        ;
+
+        
+    
+    
+            circle_marker_724bfc69d6def6d1233d40d9c69c1efe.bindTooltip(
+                `<div>
+                     GOLF COURSE: 2.79 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3213868b9a3a6176506f48bdff92d31 = L.circleMarker(
+                [-1.28, 36.88],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_e085b4c788c9c09ed8d7c6bcf1325745 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1290c8d36d92b0fb055337f1096d812a = $(`<div id="html_1290c8d36d92b0fb055337f1096d812a" style="width: 100.0%; height: 100.0%;">         <b>HARAMBEE</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 1<br>         School-Age Pop: 2,385<br>         Schools per 1000: 0.42<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 1,249<br>         Infrastructure Stress: 62.7         </div>`)[0];
+                popup_e085b4c788c9c09ed8d7c6bcf1325745.setContent(html_1290c8d36d92b0fb055337f1096d812a);
+            
+        
+
+        circle_marker_f3213868b9a3a6176506f48bdff92d31.bindPopup(popup_e085b4c788c9c09ed8d7c6bcf1325745)
+        ;
+
+        
+    
+    
+            circle_marker_f3213868b9a3a6176506f48bdff92d31.bindTooltip(
+                `<div>
+                     HARAMBEE: 0.42 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1b999a9f3a80ae31565d688ebdf2d01 = L.circleMarker(
+                [-1.245, 36.81125],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_c97eca7dd3e9686d5d2da1cac949fd9c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_31bed5c31a8a86896603dbac4b3955b4 = $(`<div id="html_31bed5c31a8a86896603dbac4b3955b4" style="width: 100.0%; height: 100.0%;">         <b>HIGHRIDGE</b><br>         Division: WESTLANDS<br>         Constituency: WESTLANDS<br>         Schools: 16<br>         School-Age Pop: 13,411<br>         Schools per 1000: 1.19<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 7,024<br>         Infrastructure Stress: 25.6         </div>`)[0];
+                popup_c97eca7dd3e9686d5d2da1cac949fd9c.setContent(html_31bed5c31a8a86896603dbac4b3955b4);
+            
+        
+
+        circle_marker_a1b999a9f3a80ae31565d688ebdf2d01.bindPopup(popup_c97eca7dd3e9686d5d2da1cac949fd9c)
+        ;
+
+        
+    
+    
+            circle_marker_a1b999a9f3a80ae31565d688ebdf2d01.bindTooltip(
+                `<div>
+                     HIGHRIDGE: 1.19 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_616bc87ea5d7fa22b724f44724a568f3 = L.circleMarker(
+                [-1.2572340425531916, 36.871702127659574],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_94db72f357ca0bc22dc73767ef746a51 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6dc235bc010393996abd0337d0d6a26c = $(`<div id="html_6dc235bc010393996abd0337d0d6a26c" style="width: 100.0%; height: 100.0%;">         <b>HURUMA</b><br>         Division: STAREHE<br>         Constituency: STAREHE<br>         Schools: 47<br>         School-Age Pop: 31,427<br>         Schools per 1000: 1.50<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 16,460<br>         Infrastructure Stress: 43.3         </div>`)[0];
+                popup_94db72f357ca0bc22dc73767ef746a51.setContent(html_6dc235bc010393996abd0337d0d6a26c);
+            
+        
+
+        circle_marker_616bc87ea5d7fa22b724f44724a568f3.bindPopup(popup_94db72f357ca0bc22dc73767ef746a51)
+        ;
+
+        
+    
+    
+            circle_marker_616bc87ea5d7fa22b724f44724a568f3.bindTooltip(
+                `<div>
+                     HURUMA: 1.50 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cc793d6cc4424aa0ec766f44970a101a = L.circleMarker(
+                [-1.2572340425531916, 36.871702127659574],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_5e75ff87bc3c5be12d5f9569f741c09e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b67d52d4c75bc2ffb6bf76b508a5e868 = $(`<div id="html_b67d52d4c75bc2ffb6bf76b508a5e868" style="width: 100.0%; height: 100.0%;">         <b>HURUMA</b><br>         Division: STAREHE<br>         Constituency: KASARANI<br>         Schools: 47<br>         School-Age Pop: 31,427<br>         Schools per 1000: 1.50<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 16,460<br>         Infrastructure Stress: 43.3         </div>`)[0];
+                popup_5e75ff87bc3c5be12d5f9569f741c09e.setContent(html_b67d52d4c75bc2ffb6bf76b508a5e868);
+            
+        
+
+        circle_marker_cc793d6cc4424aa0ec766f44970a101a.bindPopup(popup_5e75ff87bc3c5be12d5f9569f741c09e)
+        ;
+
+        
+    
+    
+            circle_marker_cc793d6cc4424aa0ec766f44970a101a.bindTooltip(
+                `<div>
+                     HURUMA: 1.50 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30b4892743743f6a311ffc75eb4e90c0 = L.circleMarker(
+                [-1.29, 36.72],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_3dc928c47ae0c88502d4880bccbf1d26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e408d4e317df07a0b522c89f2a678342 = $(`<div id="html_e408d4e317df07a0b522c89f2a678342" style="width: 100.0%; height: 100.0%;">         <b>KABIRIA</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 2<br>         School-Age Pop: 384<br>         Schools per 1000: 5.20<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 201<br>         Infrastructure Stress: 12.7         </div>`)[0];
+                popup_3dc928c47ae0c88502d4880bccbf1d26.setContent(html_e408d4e317df07a0b522c89f2a678342);
+            
+        
+
+        circle_marker_30b4892743743f6a311ffc75eb4e90c0.bindPopup(popup_3dc928c47ae0c88502d4880bccbf1d26)
+        ;
+
+        
+    
+    
+            circle_marker_30b4892743743f6a311ffc75eb4e90c0.bindTooltip(
+                `<div>
+                     KABIRIA: 5.20 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_53e05acfbf8ef926e538768da2338c71 = L.circleMarker(
+                [-1.1824999999999999, 36.90821428571428],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_2ab47145960f018cc216a0ba8dab959b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_205bf7c38c36261b8f7f177b06f83765 = $(`<div id="html_205bf7c38c36261b8f7f177b06f83765" style="width: 100.0%; height: 100.0%;">         <b>KAHAWA</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 28<br>         School-Age Pop: 18,243<br>         Schools per 1000: 1.53<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,555<br>         Infrastructure Stress: 23.8         </div>`)[0];
+                popup_2ab47145960f018cc216a0ba8dab959b.setContent(html_205bf7c38c36261b8f7f177b06f83765);
+            
+        
+
+        circle_marker_53e05acfbf8ef926e538768da2338c71.bindPopup(popup_2ab47145960f018cc216a0ba8dab959b)
+        ;
+
+        
+    
+    
+            circle_marker_53e05acfbf8ef926e538768da2338c71.bindTooltip(
+                `<div>
+                     KAHAWA: 1.53 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ad0f8c2c66a05be8e12fa3dc66b628a2 = L.circleMarker(
+                [-1.1824999999999999, 36.90821428571428],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f392618e2df3cbdc33ed90d717a3b069 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef4383aeab56a63d78ba3d93fb41a1c1 = $(`<div id="html_ef4383aeab56a63d78ba3d93fb41a1c1" style="width: 100.0%; height: 100.0%;">         <b>KAHAWA</b><br>         Division: KASARANI<br>         Constituency: LANGATA<br>         Schools: 28<br>         School-Age Pop: 18,243<br>         Schools per 1000: 1.53<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,555<br>         Infrastructure Stress: 23.8         </div>`)[0];
+                popup_f392618e2df3cbdc33ed90d717a3b069.setContent(html_ef4383aeab56a63d78ba3d93fb41a1c1);
+            
+        
+
+        circle_marker_ad0f8c2c66a05be8e12fa3dc66b628a2.bindPopup(popup_f392618e2df3cbdc33ed90d717a3b069)
+        ;
+
+        
+    
+    
+            circle_marker_ad0f8c2c66a05be8e12fa3dc66b628a2.bindTooltip(
+                `<div>
+                     KAHAWA: 1.53 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d3e47f2e23de553be49d668d26968091 = L.circleMarker(
+                [-1.3, 36.85],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_e590bbd10d37010cddd5ee36d1472db7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed99b55b2ba3c4280d93f51d81049b98 = $(`<div id="html_ed99b55b2ba3c4280d93f51d81049b98" style="width: 100.0%; height: 100.0%;">         <b>KALOLENI</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 1<br>         School-Age Pop: 2,133<br>         Schools per 1000: 0.47<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 1,117<br>         Infrastructure Stress: 61.2         </div>`)[0];
+                popup_e590bbd10d37010cddd5ee36d1472db7.setContent(html_ed99b55b2ba3c4280d93f51d81049b98);
+            
+        
+
+        circle_marker_d3e47f2e23de553be49d668d26968091.bindPopup(popup_e590bbd10d37010cddd5ee36d1472db7)
+        ;
+
+        
+    
+    
+            circle_marker_d3e47f2e23de553be49d668d26968091.bindTooltip(
+                `<div>
+                     KALOLENI: 0.47 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_89ec162c43a0366648f03329f73d8c40 = L.circleMarker(
+                [-1.29, 36.84666666666667],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_39b905de4735ee2c38b509e189dd5322 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfe3920219c3486c217d722b4a9fa49c = $(`<div id="html_dfe3920219c3486c217d722b4a9fa49c" style="width: 100.0%; height: 100.0%;">         <b>KAMUKUNJI</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 3<br>         School-Age Pop: 2,965<br>         Schools per 1000: 1.01<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 1,553<br>         Infrastructure Stress: 32.6         </div>`)[0];
+                popup_39b905de4735ee2c38b509e189dd5322.setContent(html_dfe3920219c3486c217d722b4a9fa49c);
+            
+        
+
+        circle_marker_89ec162c43a0366648f03329f73d8c40.bindPopup(popup_39b905de4735ee2c38b509e189dd5322)
+        ;
+
+        
+    
+    
+            circle_marker_89ec162c43a0366648f03329f73d8c40.bindTooltip(
+                `<div>
+                     KAMUKUNJI: 1.01 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e1cd3eb1a24f8f362f4b5288c9940781 = L.circleMarker(
+                [-1.266888888888889, 36.74688888888889],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_c288ea2efaee5d4e5654f5ca0c5defc8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_691ec52375479e571471f1147b23adf6 = $(`<div id="html_691ec52375479e571471f1147b23adf6" style="width: 100.0%; height: 100.0%;">         <b>KANGEMI</b><br>         Division: WESTLANDS<br>         Constituency: WESTLANDS<br>         Schools: 45<br>         School-Age Pop: 22,190<br>         Schools per 1000: 2.03<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 11,622<br>         Infrastructure Stress: 34.9         </div>`)[0];
+                popup_c288ea2efaee5d4e5654f5ca0c5defc8.setContent(html_691ec52375479e571471f1147b23adf6);
+            
+        
+
+        circle_marker_e1cd3eb1a24f8f362f4b5288c9940781.bindPopup(popup_c288ea2efaee5d4e5654f5ca0c5defc8)
+        ;
+
+        
+    
+    
+            circle_marker_e1cd3eb1a24f8f362f4b5288c9940781.bindTooltip(
+                `<div>
+                     KANGEMI: 2.03 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aa5e1dd21f9d490b3f69563006846313 = L.circleMarker(
+                [-1.266888888888889, 36.74688888888889],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_33923ef5e9997744dfdb8ddf10522134 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_09cb217d086a65737abb2aa1762e071c = $(`<div id="html_09cb217d086a65737abb2aa1762e071c" style="width: 100.0%; height: 100.0%;">         <b>KANGEMI</b><br>         Division: WESTLANDS<br>         Constituency: KASARANI<br>         Schools: 45<br>         School-Age Pop: 22,190<br>         Schools per 1000: 2.03<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 11,622<br>         Infrastructure Stress: 34.9         </div>`)[0];
+                popup_33923ef5e9997744dfdb8ddf10522134.setContent(html_09cb217d086a65737abb2aa1762e071c);
+            
+        
+
+        circle_marker_aa5e1dd21f9d490b3f69563006846313.bindPopup(popup_33923ef5e9997744dfdb8ddf10522134)
+        ;
+
+        
+    
+    
+            circle_marker_aa5e1dd21f9d490b3f69563006846313.bindTooltip(
+                `<div>
+                     KANGEMI: 2.03 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e64f94c40c6cdb5f7d7a1ea8b84ffcd = L.circleMarker(
+                [-1.266888888888889, 36.74688888888889],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_051c2ad081fff028579b68dc9d7c4cb8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dc443c074e66a4ede49dd2405bd3d6da = $(`<div id="html_dc443c074e66a4ede49dd2405bd3d6da" style="width: 100.0%; height: 100.0%;">         <b>KANGEMI</b><br>         Division: WESTLANDS<br>         Constituency: DAGORETTI<br>         Schools: 45<br>         School-Age Pop: 22,190<br>         Schools per 1000: 2.03<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 11,622<br>         Infrastructure Stress: 34.9         </div>`)[0];
+                popup_051c2ad081fff028579b68dc9d7c4cb8.setContent(html_dc443c074e66a4ede49dd2405bd3d6da);
+            
+        
+
+        circle_marker_8e64f94c40c6cdb5f7d7a1ea8b84ffcd.bindPopup(popup_051c2ad081fff028579b68dc9d7c4cb8)
+        ;
+
+        
+    
+    
+            circle_marker_8e64f94c40c6cdb5f7d7a1ea8b84ffcd.bindTooltip(
+                `<div>
+                     KANGEMI: 2.03 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2b01ecc8021cd49391d71a71449ca76 = L.circleMarker(
+                [-1.31, 36.70333333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_50fd6ee632f6abddebfb7468823aa143 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e4355c84601c52ee513f04a8cd84e8f3 = $(`<div id="html_e4355c84601c52ee513f04a8cd84e8f3" style="width: 100.0%; height: 100.0%;">         <b>KAREN</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 6<br>         School-Age Pop: 6,757<br>         Schools per 1000: 0.89<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 3,539<br>         Infrastructure Stress: 40.7         </div>`)[0];
+                popup_50fd6ee632f6abddebfb7468823aa143.setContent(html_e4355c84601c52ee513f04a8cd84e8f3);
+            
+        
+
+        circle_marker_b2b01ecc8021cd49391d71a71449ca76.bindPopup(popup_50fd6ee632f6abddebfb7468823aa143)
+        ;
+
+        
+    
+    
+            circle_marker_b2b01ecc8021cd49391d71a71449ca76.bindTooltip(
+                `<div>
+                     KAREN: 0.89 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_14bf43b39cf617005f3de15d94b152ec = L.circleMarker(
+                [-1.31, 36.70333333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_7ce10b0f4aafb24cc2fc6d7bd34524bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aed7993f56df2b8228b1777dcdd9ddab = $(`<div id="html_aed7993f56df2b8228b1777dcdd9ddab" style="width: 100.0%; height: 100.0%;">         <b>KAREN</b><br>         Division: KIBERA<br>         Constituency: DAGORETTI<br>         Schools: 6<br>         School-Age Pop: 6,757<br>         Schools per 1000: 0.89<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 3,539<br>         Infrastructure Stress: 40.7         </div>`)[0];
+                popup_7ce10b0f4aafb24cc2fc6d7bd34524bf.setContent(html_aed7993f56df2b8228b1777dcdd9ddab);
+            
+        
+
+        circle_marker_14bf43b39cf617005f3de15d94b152ec.bindPopup(popup_7ce10b0f4aafb24cc2fc6d7bd34524bf)
+        ;
+
+        
+    
+    
+            circle_marker_14bf43b39cf617005f3de15d94b152ec.bindTooltip(
+                `<div>
+                     KAREN: 0.89 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_09e0a0df9a8e07698a634489a36349d1 = L.circleMarker(
+                [-1.36, 36.73],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f7a55d45eae6809c9ca4f609de80a9bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2135a297d13fb2532ad1e20df8afcfcc = $(`<div id="html_2135a297d13fb2532ad1e20df8afcfcc" style="width: 100.0%; height: 100.0%;">         <b>KAREN LANGATA</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 1<br>         School-Age Pop: 202<br>         Schools per 1000: 4.96<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 106<br>         Infrastructure Stress: 21.6         </div>`)[0];
+                popup_f7a55d45eae6809c9ca4f609de80a9bf.setContent(html_2135a297d13fb2532ad1e20df8afcfcc);
+            
+        
+
+        circle_marker_09e0a0df9a8e07698a634489a36349d1.bindPopup(popup_f7a55d45eae6809c9ca4f609de80a9bf)
+        ;
+
+        
+    
+    
+            circle_marker_09e0a0df9a8e07698a634489a36349d1.bindTooltip(
+                `<div>
+                     KAREN LANGATA: 4.96 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6577d392cd10b97e7ea6adaf74266690 = L.circleMarker(
+                [-1.2449295774647888, 36.88422535211268],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_b6370ac8ed79eb58f055a4b9c43816e0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1dea5bc8c2e4ca5f3f36c683640d489a = $(`<div id="html_1dea5bc8c2e4ca5f3f36c683640d489a" style="width: 100.0%; height: 100.0%;">         <b>KARIOBANGI</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 71<br>         School-Age Pop: 25,422<br>         Schools per 1000: 2.79<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 13,315<br>         Infrastructure Stress: 31.0         </div>`)[0];
+                popup_b6370ac8ed79eb58f055a4b9c43816e0.setContent(html_1dea5bc8c2e4ca5f3f36c683640d489a);
+            
+        
+
+        circle_marker_6577d392cd10b97e7ea6adaf74266690.bindPopup(popup_b6370ac8ed79eb58f055a4b9c43816e0)
+        ;
+
+        
+    
+    
+            circle_marker_6577d392cd10b97e7ea6adaf74266690.bindTooltip(
+                `<div>
+                     KARIOBANGI: 2.79 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_33120d2f1919b9ff079fe3b860b71de2 = L.circleMarker(
+                [-1.2449295774647888, 36.88422535211268],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_267c74a45e6eb35cbcaca6b07272e559 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b4529080edc0f6c5c7fce0edc81f4f3 = $(`<div id="html_6b4529080edc0f6c5c7fce0edc81f4f3" style="width: 100.0%; height: 100.0%;">         <b>KARIOBANGI</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 71<br>         School-Age Pop: 25,422<br>         Schools per 1000: 2.79<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 13,315<br>         Infrastructure Stress: 31.0         </div>`)[0];
+                popup_267c74a45e6eb35cbcaca6b07272e559.setContent(html_6b4529080edc0f6c5c7fce0edc81f4f3);
+            
+        
+
+        circle_marker_33120d2f1919b9ff079fe3b860b71de2.bindPopup(popup_267c74a45e6eb35cbcaca6b07272e559)
+        ;
+
+        
+    
+    
+            circle_marker_33120d2f1919b9ff079fe3b860b71de2.bindTooltip(
+                `<div>
+                     KARIOBANGI: 2.79 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_194b0d97bec0270bc2baa84ba90d6b5e = L.circleMarker(
+                [-1.261, 36.884],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_42a2fd952bb7863ced6e8b4bb0995612 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5fc73b4cef50b701a42ba99815924666 = $(`<div id="html_5fc73b4cef50b701a42ba99815924666" style="width: 100.0%; height: 100.0%;">         <b>KARIOBANGI SOUTH</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 10<br>         School-Age Pop: 4,254<br>         Schools per 1000: 2.35<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,228<br>         Infrastructure Stress: 20.3         </div>`)[0];
+                popup_42a2fd952bb7863ced6e8b4bb0995612.setContent(html_5fc73b4cef50b701a42ba99815924666);
+            
+        
+
+        circle_marker_194b0d97bec0270bc2baa84ba90d6b5e.bindPopup(popup_42a2fd952bb7863ced6e8b4bb0995612)
+        ;
+
+        
+    
+    
+            circle_marker_194b0d97bec0270bc2baa84ba90d6b5e.bindTooltip(
+                `<div>
+                     KARIOBANGI SOUTH: 2.35 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f4b6015d93b3f1b25d0461c464079879 = L.circleMarker(
+                [-1.2704347826086957, 36.84],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_e2216a5c97becf2a74a64cb2e399f2f0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a6b5df420c3a4741a29fe32c6697c093 = $(`<div id="html_a6b5df420c3a4741a29fe32c6697c093" style="width: 100.0%; height: 100.0%;">         <b>KARIOKOR</b><br>         Division: STAREHE<br>         Constituency: STAREHE<br>         Schools: 23<br>         School-Age Pop: 18,329<br>         Schools per 1000: 1.25<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,600<br>         Infrastructure Stress: 31.5         </div>`)[0];
+                popup_e2216a5c97becf2a74a64cb2e399f2f0.setContent(html_a6b5df420c3a4741a29fe32c6697c093);
+            
+        
+
+        circle_marker_f4b6015d93b3f1b25d0461c464079879.bindPopup(popup_e2216a5c97becf2a74a64cb2e399f2f0)
+        ;
+
+        
+    
+    
+            circle_marker_f4b6015d93b3f1b25d0461c464079879.bindTooltip(
+                `<div>
+                     KARIOKOR: 1.25 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee96db00f79749a1349a5f5d786e2904 = L.circleMarker(
+                [-1.2704347826086957, 36.84],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_5e1b4db14d760adee66859260d04696e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6496ecd16508538c6fc662862a6d345a = $(`<div id="html_6496ecd16508538c6fc662862a6d345a" style="width: 100.0%; height: 100.0%;">         <b>KARIOKOR</b><br>         Division: PUMWANI<br>         Constituency: STAREHE<br>         Schools: 23<br>         School-Age Pop: 18,329<br>         Schools per 1000: 1.25<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,600<br>         Infrastructure Stress: 31.5         </div>`)[0];
+                popup_5e1b4db14d760adee66859260d04696e.setContent(html_6496ecd16508538c6fc662862a6d345a);
+            
+        
+
+        circle_marker_ee96db00f79749a1349a5f5d786e2904.bindPopup(popup_5e1b4db14d760adee66859260d04696e)
+        ;
+
+        
+    
+    
+            circle_marker_ee96db00f79749a1349a5f5d786e2904.bindTooltip(
+                `<div>
+                     KARIOKOR: 1.25 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1cd4878c96ab953aa5c9cf7988093bff = L.circleMarker(
+                [-1.2272058823529413, 36.92205882352941],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_dcb01c9b5b293014a5db7da195810a24 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2c7c9bfb8f14bcedda9dcf8d808f8b8 = $(`<div id="html_f2c7c9bfb8f14bcedda9dcf8d808f8b8" style="width: 100.0%; height: 100.0%;">         <b>KASARANI</b><br>         Division: KASARANI<br>         Constituency: EMBAKASI<br>         Schools: 68<br>         School-Age Pop: 20,590<br>         Schools per 1000: 3.30<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 10,784<br>         Infrastructure Stress: 21.2         </div>`)[0];
+                popup_dcb01c9b5b293014a5db7da195810a24.setContent(html_f2c7c9bfb8f14bcedda9dcf8d808f8b8);
+            
+        
+
+        circle_marker_1cd4878c96ab953aa5c9cf7988093bff.bindPopup(popup_dcb01c9b5b293014a5db7da195810a24)
+        ;
+
+        
+    
+    
+            circle_marker_1cd4878c96ab953aa5c9cf7988093bff.bindTooltip(
+                `<div>
+                     KASARANI: 3.30 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38949c22370b689339d7f370909ea097 = L.circleMarker(
+                [-1.2272058823529413, 36.92205882352941],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_6b2d7201613e2ab50d482eaac9814a55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a44625cbbb4e8e87c2bd6541f2c8945 = $(`<div id="html_1a44625cbbb4e8e87c2bd6541f2c8945" style="width: 100.0%; height: 100.0%;">         <b>KASARANI</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 68<br>         School-Age Pop: 20,590<br>         Schools per 1000: 3.30<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 10,784<br>         Infrastructure Stress: 21.2         </div>`)[0];
+                popup_6b2d7201613e2ab50d482eaac9814a55.setContent(html_1a44625cbbb4e8e87c2bd6541f2c8945);
+            
+        
+
+        circle_marker_38949c22370b689339d7f370909ea097.bindPopup(popup_6b2d7201613e2ab50d482eaac9814a55)
+        ;
+
+        
+    
+    
+            circle_marker_38949c22370b689339d7f370909ea097.bindTooltip(
+                `<div>
+                     KASARANI: 3.30 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5273b7a54160b4ab99475c1662a33e0 = L.circleMarker(
+                [-1.2272058823529413, 36.92205882352941],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_92eb70066274f3f0e529f165fdf774be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22bad83a03ebef4eb5d09a5ce98800a4 = $(`<div id="html_22bad83a03ebef4eb5d09a5ce98800a4" style="width: 100.0%; height: 100.0%;">         <b>KASARANI</b><br>         Division: KASARANI<br>         Constituency: WESTLANDS<br>         Schools: 68<br>         School-Age Pop: 20,590<br>         Schools per 1000: 3.30<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 10,784<br>         Infrastructure Stress: 21.2         </div>`)[0];
+                popup_92eb70066274f3f0e529f165fdf774be.setContent(html_22bad83a03ebef4eb5d09a5ce98800a4);
+            
+        
+
+        circle_marker_f5273b7a54160b4ab99475c1662a33e0.bindPopup(popup_92eb70066274f3f0e529f165fdf774be)
+        ;
+
+        
+    
+    
+            circle_marker_f5273b7a54160b4ab99475c1662a33e0.bindTooltip(
+                `<div>
+                     KASARANI: 3.30 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_51d77c4475ed20599557b82fc50cdb7e = L.circleMarker(
+                [-1.2272058823529413, 36.92205882352941],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_078212c8ec566eae3bb59eea87af7ae6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca2b7e11d7d263b9f09cfae46e6e562a = $(`<div id="html_ca2b7e11d7d263b9f09cfae46e6e562a" style="width: 100.0%; height: 100.0%;">         <b>KASARANI</b><br>         Division: KASARANI<br>         Constituency: LANGATA<br>         Schools: 68<br>         School-Age Pop: 20,590<br>         Schools per 1000: 3.30<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 10,784<br>         Infrastructure Stress: 21.2         </div>`)[0];
+                popup_078212c8ec566eae3bb59eea87af7ae6.setContent(html_ca2b7e11d7d263b9f09cfae46e6e562a);
+            
+        
+
+        circle_marker_51d77c4475ed20599557b82fc50cdb7e.bindPopup(popup_078212c8ec566eae3bb59eea87af7ae6)
+        ;
+
+        
+    
+    
+            circle_marker_51d77c4475ed20599557b82fc50cdb7e.bindTooltip(
+                `<div>
+                     KASARANI: 3.30 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ef87409ffc0e75fe4321bb2ce10110f1 = L.circleMarker(
+                [-1.2797435897435898, 36.74897435897436],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_719ab60ff04f5c6f226cf8d1b547918b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b860ac6f6bef29c1463b675b4d157ef0 = $(`<div id="html_b860ac6f6bef29c1463b675b4d157ef0" style="width: 100.0%; height: 100.0%;">         <b>KAWANGWARE</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 39<br>         School-Age Pop: 20,798<br>         Schools per 1000: 1.88<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 10,893<br>         Infrastructure Stress: 32.9         </div>`)[0];
+                popup_719ab60ff04f5c6f226cf8d1b547918b.setContent(html_b860ac6f6bef29c1463b675b4d157ef0);
+            
+        
+
+        circle_marker_ef87409ffc0e75fe4321bb2ce10110f1.bindPopup(popup_719ab60ff04f5c6f226cf8d1b547918b)
+        ;
+
+        
+    
+    
+            circle_marker_ef87409ffc0e75fe4321bb2ce10110f1.bindTooltip(
+                `<div>
+                     KAWANGWARE: 1.88 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_776259bff277d36106a12afc3e5800eb = L.circleMarker(
+                [-1.2797435897435898, 36.74897435897436],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_7686b00fb31a8c0711718479e45a03ab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f1211c3e287494917b5e38783424bdd2 = $(`<div id="html_f1211c3e287494917b5e38783424bdd2" style="width: 100.0%; height: 100.0%;">         <b>KAWANGWARE</b><br>         Division: DAGORETTI<br>         Constituency: WESTLANDS<br>         Schools: 39<br>         School-Age Pop: 20,798<br>         Schools per 1000: 1.88<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 10,893<br>         Infrastructure Stress: 32.9         </div>`)[0];
+                popup_7686b00fb31a8c0711718479e45a03ab.setContent(html_f1211c3e287494917b5e38783424bdd2);
+            
+        
+
+        circle_marker_776259bff277d36106a12afc3e5800eb.bindPopup(popup_7686b00fb31a8c0711718479e45a03ab)
+        ;
+
+        
+    
+    
+            circle_marker_776259bff277d36106a12afc3e5800eb.bindTooltip(
+                `<div>
+                     KAWANGWARE: 1.88 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_499f38fafb0e22b182995e64c786cbac = L.circleMarker(
+                [-1.2696666666666667, 36.9135],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_a7b0bbe0909cb83e9cd78c62139243b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6fdb1d733f835d05955e49f997c4d351 = $(`<div id="html_6fdb1d733f835d05955e49f997c4d351" style="width: 100.0%; height: 100.0%;">         <b>KAYOLE</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 60<br>         School-Age Pop: 24,949<br>         Schools per 1000: 2.40<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 13,067<br>         Infrastructure Stress: 20.7         </div>`)[0];
+                popup_a7b0bbe0909cb83e9cd78c62139243b1.setContent(html_6fdb1d733f835d05955e49f997c4d351);
+            
+        
+
+        circle_marker_499f38fafb0e22b182995e64c786cbac.bindPopup(popup_a7b0bbe0909cb83e9cd78c62139243b1)
+        ;
+
+        
+    
+    
+            circle_marker_499f38fafb0e22b182995e64c786cbac.bindTooltip(
+                `<div>
+                     KAYOLE: 2.40 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_10cd2aab61fbdb9cfd587f8191973ff3 = L.circleMarker(
+                [-1.30375, 36.785625],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_de654e517ff20786651db5d036f54f09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c7e08614803c8a9104e34aba957882c = $(`<div id="html_6c7e08614803c8a9104e34aba957882c" style="width: 100.0%; height: 100.0%;">         <b>KENYATTA/GOLF COURSE</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 16<br>         School-Age Pop: 18,091<br>         Schools per 1000: 0.88<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,475<br>         Infrastructure Stress: 40.8         </div>`)[0];
+                popup_de654e517ff20786651db5d036f54f09.setContent(html_6c7e08614803c8a9104e34aba957882c);
+            
+        
+
+        circle_marker_10cd2aab61fbdb9cfd587f8191973ff3.bindPopup(popup_de654e517ff20786651db5d036f54f09)
+        ;
+
+        
+    
+    
+            circle_marker_10cd2aab61fbdb9cfd587f8191973ff3.bindTooltip(
+                `<div>
+                     KENYATTA/GOLF COURSE: 0.88 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c14386e6de1e5b4b6f42393c858bbfb = L.circleMarker(
+                [-1.30375, 36.785625],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f099edf523768ac99f1baa2454e6ae0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5e0392bdb892436ef3bc0f297448471e = $(`<div id="html_5e0392bdb892436ef3bc0f297448471e" style="width: 100.0%; height: 100.0%;">         <b>KENYATTA/GOLF COURSE</b><br>         Division: DAGORETTI<br>         Constituency: LANGATA<br>         Schools: 16<br>         School-Age Pop: 18,091<br>         Schools per 1000: 0.88<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,475<br>         Infrastructure Stress: 40.8         </div>`)[0];
+                popup_f099edf523768ac99f1baa2454e6ae0e.setContent(html_5e0392bdb892436ef3bc0f297448471e);
+            
+        
+
+        circle_marker_8c14386e6de1e5b4b6f42393c858bbfb.bindPopup(popup_f099edf523768ac99f1baa2454e6ae0e)
+        ;
+
+        
+    
+    
+            circle_marker_8c14386e6de1e5b4b6f42393c858bbfb.bindTooltip(
+                `<div>
+                     KENYATTA/GOLF COURSE: 0.88 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_59d0efb3e0a946282997f1f8c6a1005e = L.circleMarker(
+                [-1.28, 36.86],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_e8c85216bf89b7a037a78b068aaa4ea5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a18ba66cb8c2094e0d42d9123096f6d5 = $(`<div id="html_a18ba66cb8c2094e0d42d9123096f6d5" style="width: 100.0%; height: 100.0%;">         <b>KIATATHI</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 1<br>         School-Age Pop: 1,361<br>         Schools per 1000: 0.73<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 713<br>         Infrastructure Stress: 56.7         </div>`)[0];
+                popup_e8c85216bf89b7a037a78b068aaa4ea5.setContent(html_a18ba66cb8c2094e0d42d9123096f6d5);
+            
+        
+
+        circle_marker_59d0efb3e0a946282997f1f8c6a1005e.bindPopup(popup_e8c85216bf89b7a037a78b068aaa4ea5)
+        ;
+
+        
+    
+    
+            circle_marker_59d0efb3e0a946282997f1f8c6a1005e.bindTooltip(
+                `<div>
+                     KIATATHI: 0.73 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_80b060ae46b6b53ed4f4ecf27777f39b = L.circleMarker(
+                [-1.3102777777777779, 36.78805555555555],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_ad215ea858af48d50cbe20ad74c66ad1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6aa10da2764db7b964d041a56355276e = $(`<div id="html_6aa10da2764db7b964d041a56355276e" style="width: 100.0%; height: 100.0%;">         <b>KIBERA</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 36<br>         School-Age Pop: 21,493<br>         Schools per 1000: 1.67<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 11,257<br>         Infrastructure Stress: 47.3         </div>`)[0];
+                popup_ad215ea858af48d50cbe20ad74c66ad1.setContent(html_6aa10da2764db7b964d041a56355276e);
+            
+        
+
+        circle_marker_80b060ae46b6b53ed4f4ecf27777f39b.bindPopup(popup_ad215ea858af48d50cbe20ad74c66ad1)
+        ;
+
+        
+    
+    
+            circle_marker_80b060ae46b6b53ed4f4ecf27777f39b.bindTooltip(
+                `<div>
+                     KIBERA: 1.67 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aba9df0cfac473472b0374c2d4dac5e0 = L.circleMarker(
+                [-1.27, 36.79],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_84bd26fc2fa364ae26949b78aad0adf8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fbac3ca465c3c34cd6da4d7524360317 = $(`<div id="html_fbac3ca465c3c34cd6da4d7524360317" style="width: 100.0%; height: 100.0%;">         <b>KILELESHWA</b><br>         Division: WESTLANDS<br>         Constituency: WESTLANDS<br>         Schools: 1<br>         School-Age Pop: 861<br>         Schools per 1000: 1.16<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 451<br>         Infrastructure Stress: 39.8         </div>`)[0];
+                popup_84bd26fc2fa364ae26949b78aad0adf8.setContent(html_fbac3ca465c3c34cd6da4d7524360317);
+            
+        
+
+        circle_marker_aba9df0cfac473472b0374c2d4dac5e0.bindPopup(popup_84bd26fc2fa364ae26949b78aad0adf8)
+        ;
+
+        
+    
+    
+            circle_marker_aba9df0cfac473472b0374c2d4dac5e0.bindTooltip(
+                `<div>
+                     KILELESHWA: 1.16 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_014c4d1d7df9dd2f9aee2b628eb6a144 = L.circleMarker(
+                [-1.2875, 36.79083333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_96383728b7710a8271285749a4d89fcd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ab4d8bcf83f816449a2940f271c25d9 = $(`<div id="html_6ab4d8bcf83f816449a2940f271c25d9" style="width: 100.0%; height: 100.0%;">         <b>KILIMANI</b><br>         Division: WESTLANDS<br>         Constituency: WESTLANDS<br>         Schools: 24<br>         School-Age Pop: 17,875<br>         Schools per 1000: 1.34<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,362<br>         Infrastructure Stress: 21.9         </div>`)[0];
+                popup_96383728b7710a8271285749a4d89fcd.setContent(html_6ab4d8bcf83f816449a2940f271c25d9);
+            
+        
+
+        circle_marker_014c4d1d7df9dd2f9aee2b628eb6a144.bindPopup(popup_96383728b7710a8271285749a4d89fcd)
+        ;
+
+        
+    
+    
+            circle_marker_014c4d1d7df9dd2f9aee2b628eb6a144.bindTooltip(
+                `<div>
+                     KILIMANI: 1.34 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d073743fbf1bd80efc4a651a6e91053d = L.circleMarker(
+                [-1.2875, 36.79083333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_03d0eb7cbd618125c17012f7a8754d06 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75a9583b2665c1caaee063fe2b67669b = $(`<div id="html_75a9583b2665c1caaee063fe2b67669b" style="width: 100.0%; height: 100.0%;">         <b>KILIMANI</b><br>         Division: WESTLANDS<br>         Constituency: DAGORETTI<br>         Schools: 24<br>         School-Age Pop: 17,875<br>         Schools per 1000: 1.34<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,362<br>         Infrastructure Stress: 21.9         </div>`)[0];
+                popup_03d0eb7cbd618125c17012f7a8754d06.setContent(html_75a9583b2665c1caaee063fe2b67669b);
+            
+        
+
+        circle_marker_d073743fbf1bd80efc4a651a6e91053d.bindPopup(popup_03d0eb7cbd618125c17012f7a8754d06)
+        ;
+
+        
+    
+    
+            circle_marker_d073743fbf1bd80efc4a651a6e91053d.bindTooltip(
+                `<div>
+                     KILIMANI: 1.34 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4d00df27be574694edf4e03ebad8abb9 = L.circleMarker(
+                [-1.2875, 36.79083333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_5c81c3d92f040ef46b2e62dbd1e0405d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c680b7244b987dc9e1120d7461be528c = $(`<div id="html_c680b7244b987dc9e1120d7461be528c" style="width: 100.0%; height: 100.0%;">         <b>KILIMANI</b><br>         Division: WESTLANDS<br>         Constituency: MAKADARA<br>         Schools: 24<br>         School-Age Pop: 17,875<br>         Schools per 1000: 1.34<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,362<br>         Infrastructure Stress: 21.9         </div>`)[0];
+                popup_5c81c3d92f040ef46b2e62dbd1e0405d.setContent(html_c680b7244b987dc9e1120d7461be528c);
+            
+        
+
+        circle_marker_4d00df27be574694edf4e03ebad8abb9.bindPopup(popup_5c81c3d92f040ef46b2e62dbd1e0405d)
+        ;
+
+        
+    
+    
+            circle_marker_4d00df27be574694edf4e03ebad8abb9.bindTooltip(
+                `<div>
+                     KILIMANI: 1.34 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6edd196b2e3be65b4ebde91bfae8a6d9 = L.circleMarker(
+                [-1.250714285714286, 36.74285714285714],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_c26ca03c1bcc7c105974c4ff19a0019d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5af0d14098a4ffb3b4fc7d5a0be5e2c = $(`<div id="html_f5af0d14098a4ffb3b4fc7d5a0be5e2c" style="width: 100.0%; height: 100.0%;">         <b>KITISURU</b><br>         Division: WESTLANDS<br>         Constituency: WESTLANDS<br>         Schools: 14<br>         School-Age Pop: 10,228<br>         Schools per 1000: 1.37<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 5,357<br>         Infrastructure Stress: 34.0         </div>`)[0];
+                popup_c26ca03c1bcc7c105974c4ff19a0019d.setContent(html_f5af0d14098a4ffb3b4fc7d5a0be5e2c);
+            
+        
+
+        circle_marker_6edd196b2e3be65b4ebde91bfae8a6d9.bindPopup(popup_c26ca03c1bcc7c105974c4ff19a0019d)
+        ;
+
+        
+    
+    
+            circle_marker_6edd196b2e3be65b4ebde91bfae8a6d9.bindTooltip(
+                `<div>
+                     KITISURU: 1.37 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1e5197464648699ddad204edf31b6473 = L.circleMarker(
+                [-1.26, 36.91],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_561e1891f161846207830faa908bdab8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3489654aac86f1a6692ad75581ef063f = $(`<div id="html_3489654aac86f1a6692ad75581ef063f" style="width: 100.0%; height: 100.0%;">         <b>KOMAROCK</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 2<br>         School-Age Pop: 191<br>         Schools per 1000: 10.47<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 100<br>         Infrastructure Stress: 14.2         </div>`)[0];
+                popup_561e1891f161846207830faa908bdab8.setContent(html_3489654aac86f1a6692ad75581ef063f);
+            
+        
+
+        circle_marker_1e5197464648699ddad204edf31b6473.bindPopup(popup_561e1891f161846207830faa908bdab8)
+        ;
+
+        
+    
+    
+            circle_marker_1e5197464648699ddad204edf31b6473.bindTooltip(
+                `<div>
+                     KOMAROCK: 10.47 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cef977ae7d090c1d562aa67438f3950f = L.circleMarker(
+                [-1.2469444444444444, 36.89055555555555],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_5aab4201747c8e6e02a965ebe1b3ff9a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_151313142f36826551ab9993dd2c6bc6 = $(`<div id="html_151313142f36826551ab9993dd2c6bc6" style="width: 100.0%; height: 100.0%;">         <b>KOROGOCHO</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 36<br>         School-Age Pop: 14,131<br>         Schools per 1000: 2.55<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 7,401<br>         Infrastructure Stress: 28.4         </div>`)[0];
+                popup_5aab4201747c8e6e02a965ebe1b3ff9a.setContent(html_151313142f36826551ab9993dd2c6bc6);
+            
+        
+
+        circle_marker_cef977ae7d090c1d562aa67438f3950f.bindPopup(popup_5aab4201747c8e6e02a965ebe1b3ff9a)
+        ;
+
+        
+    
+    
+            circle_marker_cef977ae7d090c1d562aa67438f3950f.bindTooltip(
+                `<div>
+                     KOROGOCHO: 2.55 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c3d7b28ccbf4336a54ff7c94c7e4d35c = L.circleMarker(
+                [-1.2469444444444444, 36.89055555555555],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_923b7f72af8f3a25c98c81ae550603a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f2073a3659f63425095cbfc803cdcb0 = $(`<div id="html_1f2073a3659f63425095cbfc803cdcb0" style="width: 100.0%; height: 100.0%;">         <b>KOROGOCHO</b><br>         Division: KASARANI<br>         Constituency: LANGATA<br>         Schools: 36<br>         School-Age Pop: 14,131<br>         Schools per 1000: 2.55<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 7,401<br>         Infrastructure Stress: 28.4         </div>`)[0];
+                popup_923b7f72af8f3a25c98c81ae550603a8.setContent(html_1f2073a3659f63425095cbfc803cdcb0);
+            
+        
+
+        circle_marker_c3d7b28ccbf4336a54ff7c94c7e4d35c.bindPopup(popup_923b7f72af8f3a25c98c81ae550603a8)
+        ;
+
+        
+    
+    
+            circle_marker_c3d7b28ccbf4336a54ff7c94c7e4d35c.bindTooltip(
+                `<div>
+                     KOROGOCHO: 2.55 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a1137b22d543be8ec3439267411a9b42 = L.circleMarker(
+                [-1.31, 36.794117647058826],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_921a07707baa889e0e403a704036f859 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b1a0ce9603151c221ac8d0ccdbaf87d5 = $(`<div id="html_b1a0ce9603151c221ac8d0ccdbaf87d5" style="width: 100.0%; height: 100.0%;">         <b>LAINI SABA</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 17<br>         School-Age Pop: 4,458<br>         Schools per 1000: 3.81<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,335<br>         Infrastructure Stress: 22.3         </div>`)[0];
+                popup_921a07707baa889e0e403a704036f859.setContent(html_b1a0ce9603151c221ac8d0ccdbaf87d5);
+            
+        
+
+        circle_marker_a1137b22d543be8ec3439267411a9b42.bindPopup(popup_921a07707baa889e0e403a704036f859)
+        ;
+
+        
+    
+    
+            circle_marker_a1137b22d543be8ec3439267411a9b42.bindTooltip(
+                `<div>
+                     LAINI SABA: 3.81 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_26f506eb51ce3d7d0d0accf501fc6d19 = L.circleMarker(
+                [-1.338421052631579, 36.752631578947366],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_d1e119a0a630b1b0f4187ad1d542e3ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4838aac7d07237881448155474c78f08 = $(`<div id="html_4838aac7d07237881448155474c78f08" style="width: 100.0%; height: 100.0%;">         <b>LANGATA</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 19<br>         School-Age Pop: 7,828<br>         Schools per 1000: 2.43<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 4,100<br>         Infrastructure Stress: 20.6         </div>`)[0];
+                popup_d1e119a0a630b1b0f4187ad1d542e3ca.setContent(html_4838aac7d07237881448155474c78f08);
+            
+        
+
+        circle_marker_26f506eb51ce3d7d0d0accf501fc6d19.bindPopup(popup_d1e119a0a630b1b0f4187ad1d542e3ca)
+        ;
+
+        
+    
+    
+            circle_marker_26f506eb51ce3d7d0d0accf501fc6d19.bindTooltip(
+                `<div>
+                     LANGATA: 2.43 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9d891c8fe78c3d706a71b9b2817b480 = L.circleMarker(
+                [-1.2814285714285714, 36.76857142857143],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_dbca182d142702ecb4b414c555753df5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7143d8735232fec745896888e3d9b0e4 = $(`<div id="html_7143d8735232fec745896888e3d9b0e4" style="width: 100.0%; height: 100.0%;">         <b>LAVINGTON</b><br>         Division: WESTLANDS<br>         Constituency: WESTLANDS<br>         Schools: 21<br>         School-Age Pop: 18,295<br>         Schools per 1000: 1.15<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,582<br>         Infrastructure Stress: 24.3         </div>`)[0];
+                popup_dbca182d142702ecb4b414c555753df5.setContent(html_7143d8735232fec745896888e3d9b0e4);
+            
+        
+
+        circle_marker_b9d891c8fe78c3d706a71b9b2817b480.bindPopup(popup_dbca182d142702ecb4b414c555753df5)
+        ;
+
+        
+    
+    
+            circle_marker_b9d891c8fe78c3d706a71b9b2817b480.bindTooltip(
+                `<div>
+                     LAVINGTON: 1.15 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_52e8361b91e6313718baaeeb584a3398 = L.circleMarker(
+                [-1.2814285714285714, 36.76857142857143],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_2f9ad5c370f502ffa67ae0430e9bf5d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5888d58d991d64f0ab3523c80d14fe18 = $(`<div id="html_5888d58d991d64f0ab3523c80d14fe18" style="width: 100.0%; height: 100.0%;">         <b>LAVINGTON</b><br>         Division: WESTLANDS<br>         Constituency: DAGORETTI<br>         Schools: 21<br>         School-Age Pop: 18,295<br>         Schools per 1000: 1.15<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,582<br>         Infrastructure Stress: 24.3         </div>`)[0];
+                popup_2f9ad5c370f502ffa67ae0430e9bf5d5.setContent(html_5888d58d991d64f0ab3523c80d14fe18);
+            
+        
+
+        circle_marker_52e8361b91e6313718baaeeb584a3398.bindPopup(popup_2f9ad5c370f502ffa67ae0430e9bf5d5)
+        ;
+
+        
+    
+    
+            circle_marker_52e8361b91e6313718baaeeb584a3398.bindTooltip(
+                `<div>
+                     LAVINGTON: 1.15 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b8c1f873e6cb04c8cc2ddec0a91e0c3 = L.circleMarker(
+                [-1.286, 36.874],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_3bf69f2178cf08e3ab123d7efad392d1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2d8c4ad4a9f3936a1b8a1f6b88fe3e36 = $(`<div id="html_2d8c4ad4a9f3936a1b8a1f6b88fe3e36" style="width: 100.0%; height: 100.0%;">         <b>MAKADARA</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 20<br>         School-Age Pop: 14,530<br>         Schools per 1000: 1.38<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 7,610<br>         Infrastructure Stress: 24.7         </div>`)[0];
+                popup_3bf69f2178cf08e3ab123d7efad392d1.setContent(html_2d8c4ad4a9f3936a1b8a1f6b88fe3e36);
+            
+        
+
+        circle_marker_7b8c1f873e6cb04c8cc2ddec0a91e0c3.bindPopup(popup_3bf69f2178cf08e3ab123d7efad392d1)
+        ;
+
+        
+    
+    
+            circle_marker_7b8c1f873e6cb04c8cc2ddec0a91e0c3.bindTooltip(
+                `<div>
+                     MAKADARA: 1.38 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a15dbc452425d4253deabb30334c0d13 = L.circleMarker(
+                [-1.286, 36.874],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_b0f8f43b964620ba5e2fdaf1c6c8f8fb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_86021e42eda7ef6eefc7b1f0d439b95c = $(`<div id="html_86021e42eda7ef6eefc7b1f0d439b95c" style="width: 100.0%; height: 100.0%;">         <b>MAKADARA</b><br>         Division: MAKADARA<br>         Constituency: EMBAKASI<br>         Schools: 20<br>         School-Age Pop: 14,530<br>         Schools per 1000: 1.38<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 7,610<br>         Infrastructure Stress: 24.7         </div>`)[0];
+                popup_b0f8f43b964620ba5e2fdaf1c6c8f8fb.setContent(html_86021e42eda7ef6eefc7b1f0d439b95c);
+            
+        
+
+        circle_marker_a15dbc452425d4253deabb30334c0d13.bindPopup(popup_b0f8f43b964620ba5e2fdaf1c6c8f8fb)
+        ;
+
+        
+    
+    
+            circle_marker_a15dbc452425d4253deabb30334c0d13.bindTooltip(
+                `<div>
+                     MAKADARA: 1.38 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e844d7473d9a067832a87386999e4e3 = L.circleMarker(
+                [-1.31, 36.79],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_abb8cebbc74869ce3f29a0f32c983aa0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dd43910d709b9f16c031d439188782c1 = $(`<div id="html_dd43910d709b9f16c031d439188782c1" style="width: 100.0%; height: 100.0%;">         <b>MAKINA</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 1<br>         School-Age Pop: 367<br>         Schools per 1000: 2.72<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 192<br>         Infrastructure Stress: 32.5         </div>`)[0];
+                popup_abb8cebbc74869ce3f29a0f32c983aa0.setContent(html_dd43910d709b9f16c031d439188782c1);
+            
+        
+
+        circle_marker_2e844d7473d9a067832a87386999e4e3.bindPopup(popup_abb8cebbc74869ce3f29a0f32c983aa0)
+        ;
+
+        
+    
+    
+            circle_marker_2e844d7473d9a067832a87386999e4e3.bindTooltip(
+                `<div>
+                     MAKINA: 2.72 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b07fd2c150962fe3e34729d1fc968e8f = L.circleMarker(
+                [-1.3, 36.847500000000004],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_26c6f8268cc33c090c83716e18ce24b5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b02f8a56fb27e47a229c43acbeb909b = $(`<div id="html_2b02f8a56fb27e47a229c43acbeb909b" style="width: 100.0%; height: 100.0%;">         <b>MAKONGENI</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 4<br>         School-Age Pop: 2,910<br>         Schools per 1000: 1.37<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 1,524<br>         Infrastructure Stress: 64.7         </div>`)[0];
+                popup_26c6f8268cc33c090c83716e18ce24b5.setContent(html_2b02f8a56fb27e47a229c43acbeb909b);
+            
+        
+
+        circle_marker_b07fd2c150962fe3e34729d1fc968e8f.bindPopup(popup_26c6f8268cc33c090c83716e18ce24b5)
+        ;
+
+        
+    
+    
+            circle_marker_b07fd2c150962fe3e34729d1fc968e8f.bindTooltip(
+                `<div>
+                     MAKONGENI: 1.37 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32a1f854d4e964084e296b33e1a2475a = L.circleMarker(
+                [-1.2925, 36.85875],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_4077cb6b6c60fde893a9140922058e0b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f26f64f2b1f268da5d86d9fbb2cb78d = $(`<div id="html_6f26f64f2b1f268da5d86d9fbb2cb78d" style="width: 100.0%; height: 100.0%;">         <b>MARINGO</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 16<br>         School-Age Pop: 13,262<br>         Schools per 1000: 1.21<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 6,946<br>         Infrastructure Stress: 41.9         </div>`)[0];
+                popup_4077cb6b6c60fde893a9140922058e0b.setContent(html_6f26f64f2b1f268da5d86d9fbb2cb78d);
+            
+        
+
+        circle_marker_32a1f854d4e964084e296b33e1a2475a.bindPopup(popup_4077cb6b6c60fde893a9140922058e0b)
+        ;
+
+        
+    
+    
+            circle_marker_32a1f854d4e964084e296b33e1a2475a.bindTooltip(
+                `<div>
+                     MARINGO: 1.21 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2a603ca53ca9eb5eb302531ab9583a0e = L.circleMarker(
+                [-1.2925, 36.85875],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_cf6694422aa4133362dcb026275de408 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f97452b5bba693832b6a8bad2d79149 = $(`<div id="html_3f97452b5bba693832b6a8bad2d79149" style="width: 100.0%; height: 100.0%;">         <b>MARINGO</b><br>         Division: MAKADARA<br>         Constituency: KAMUKUNJI<br>         Schools: 16<br>         School-Age Pop: 13,262<br>         Schools per 1000: 1.21<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 6,946<br>         Infrastructure Stress: 41.9         </div>`)[0];
+                popup_cf6694422aa4133362dcb026275de408.setContent(html_3f97452b5bba693832b6a8bad2d79149);
+            
+        
+
+        circle_marker_2a603ca53ca9eb5eb302531ab9583a0e.bindPopup(popup_cf6694422aa4133362dcb026275de408)
+        ;
+
+        
+    
+    
+            circle_marker_2a603ca53ca9eb5eb302531ab9583a0e.bindTooltip(
+                `<div>
+                     MARINGO: 1.21 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_08a47b3b18d2ec3a5be1ba77708deaa2 = L.circleMarker(
+                [-1.26, 36.852105263157895],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_2ec6c9ecc0d6e3984ff3a62e79e855d9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fa94e642d84f57a4e00198bdad960394 = $(`<div id="html_fa94e642d84f57a4e00198bdad960394" style="width: 100.0%; height: 100.0%;">         <b>MATHARE</b><br>         Division: STAREHE<br>         Constituency: STAREHE<br>         Schools: 19<br>         School-Age Pop: 15,975<br>         Schools per 1000: 1.19<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 8,367<br>         Infrastructure Stress: 48.3         </div>`)[0];
+                popup_2ec6c9ecc0d6e3984ff3a62e79e855d9.setContent(html_fa94e642d84f57a4e00198bdad960394);
+            
+        
+
+        circle_marker_08a47b3b18d2ec3a5be1ba77708deaa2.bindPopup(popup_2ec6c9ecc0d6e3984ff3a62e79e855d9)
+        ;
+
+        
+    
+    
+            circle_marker_08a47b3b18d2ec3a5be1ba77708deaa2.bindTooltip(
+                `<div>
+                     MATHARE: 1.19 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b1d9549155ca29a2abcb2a5fea249e79 = L.circleMarker(
+                [-1.26, 36.852105263157895],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_b63e8e980839eb3f40e3f0647bf1c381 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5ce245c1469e8aceb54d02d8d7ab525e = $(`<div id="html_5ce245c1469e8aceb54d02d8d7ab525e" style="width: 100.0%; height: 100.0%;">         <b>MATHARE</b><br>         Division: STAREHE<br>         Constituency: MAKADARA<br>         Schools: 19<br>         School-Age Pop: 15,975<br>         Schools per 1000: 1.19<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 8,367<br>         Infrastructure Stress: 48.3         </div>`)[0];
+                popup_b63e8e980839eb3f40e3f0647bf1c381.setContent(html_5ce245c1469e8aceb54d02d8d7ab525e);
+            
+        
+
+        circle_marker_b1d9549155ca29a2abcb2a5fea249e79.bindPopup(popup_b63e8e980839eb3f40e3f0647bf1c381)
+        ;
+
+        
+    
+    
+            circle_marker_b1d9549155ca29a2abcb2a5fea249e79.bindTooltip(
+                `<div>
+                     MATHARE: 1.19 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e633bb87f9af0c5ba23768ca999f59a8 = L.circleMarker(
+                [-1.26, 36.852105263157895],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_d786f8385610b25a9b67f579ea8f2108 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ce66c14b87444ebecf983bd38d28a90e = $(`<div id="html_ce66c14b87444ebecf983bd38d28a90e" style="width: 100.0%; height: 100.0%;">         <b>MATHARE</b><br>         Division: STAREHE<br>         Constituency: KAMUKUNJI<br>         Schools: 19<br>         School-Age Pop: 15,975<br>         Schools per 1000: 1.19<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 8,367<br>         Infrastructure Stress: 48.3         </div>`)[0];
+                popup_d786f8385610b25a9b67f579ea8f2108.setContent(html_ce66c14b87444ebecf983bd38d28a90e);
+            
+        
+
+        circle_marker_e633bb87f9af0c5ba23768ca999f59a8.bindPopup(popup_d786f8385610b25a9b67f579ea8f2108)
+        ;
+
+        
+    
+    
+            circle_marker_e633bb87f9af0c5ba23768ca999f59a8.bindTooltip(
+                `<div>
+                     MATHARE: 1.19 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8413af73b49849168446b5d70a70817d = L.circleMarker(
+                [-1.26, 36.95],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_b8dd9bd91a57c0f62f5858da55959c32 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a86fe06ff92bed5ee5e6a903239fbccd = $(`<div id="html_a86fe06ff92bed5ee5e6a903239fbccd" style="width: 100.0%; height: 100.0%;">         <b>MIHANGO</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 1<br>         School-Age Pop: 1,585<br>         Schools per 1000: 0.63<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 830<br>         Infrastructure Stress: 79.1         </div>`)[0];
+                popup_b8dd9bd91a57c0f62f5858da55959c32.setContent(html_a86fe06ff92bed5ee5e6a903239fbccd);
+            
+        
+
+        circle_marker_8413af73b49849168446b5d70a70817d.bindPopup(popup_b8dd9bd91a57c0f62f5858da55959c32)
+        ;
+
+        
+    
+    
+            circle_marker_8413af73b49849168446b5d70a70817d.bindTooltip(
+                `<div>
+                     MIHANGO: 0.63 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ce3988adacddbe4f941371e78206d788 = L.circleMarker(
+                [-1.26, 36.84],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_1a799bcfb3dcce181d196591d6b648ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a94fb9da3f15200ecf117a573730e77a = $(`<div id="html_a94fb9da3f15200ecf117a573730e77a" style="width: 100.0%; height: 100.0%;">         <b>MLANGO KUBWA</b><br>         Division: STAREHE<br>         Constituency: STAREHE<br>         Schools: 1<br>         School-Age Pop: 48<br>         Schools per 1000: 20.71<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 25<br>         Infrastructure Stress: 12.5         </div>`)[0];
+                popup_1a799bcfb3dcce181d196591d6b648ef.setContent(html_a94fb9da3f15200ecf117a573730e77a);
+            
+        
+
+        circle_marker_ce3988adacddbe4f941371e78206d788.bindPopup(popup_1a799bcfb3dcce181d196591d6b648ef)
+        ;
+
+        
+    
+    
+            circle_marker_ce3988adacddbe4f941371e78206d788.bindTooltip(
+                `<div>
+                     MLANGO KUBWA: 20.71 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27dc325bf6010a2f56a92cd914ff3fdc = L.circleMarker(
+                [-1.3206250000000002, 36.785000000000004],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_de0427fe8b310878a26d96852312dfbf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5d9b9ae5e72d140de58e2bf68a03465f = $(`<div id="html_5d9b9ae5e72d140de58e2bf68a03465f" style="width: 100.0%; height: 100.0%;">         <b>MUGUMOINI</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 16<br>         School-Age Pop: 10,656<br>         Schools per 1000: 1.50<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 5,581<br>         Infrastructure Stress: 32.6         </div>`)[0];
+                popup_de0427fe8b310878a26d96852312dfbf.setContent(html_5d9b9ae5e72d140de58e2bf68a03465f);
+            
+        
+
+        circle_marker_27dc325bf6010a2f56a92cd914ff3fdc.bindPopup(popup_de0427fe8b310878a26d96852312dfbf)
+        ;
+
+        
+    
+    
+            circle_marker_27dc325bf6010a2f56a92cd914ff3fdc.bindTooltip(
+                `<div>
+                     MUGUMOINI: 1.50 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15328feb1da8f491c5e9643e4d8eaa73 = L.circleMarker(
+                [-1.31, 36.86],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_87f1b4343f9ab7fa96b91818d87c6b6d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_46f51afad8134d18c2c351d97bd8e37f = $(`<div id="html_46f51afad8134d18c2c351d97bd8e37f" style="width: 100.0%; height: 100.0%;">         <b>MUKURU</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 1<br>         School-Age Pop: 1,772<br>         Schools per 1000: 0.56<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 928<br>         Infrastructure Stress: 60.7         </div>`)[0];
+                popup_87f1b4343f9ab7fa96b91818d87c6b6d.setContent(html_46f51afad8134d18c2c351d97bd8e37f);
+            
+        
+
+        circle_marker_15328feb1da8f491c5e9643e4d8eaa73.bindPopup(popup_87f1b4343f9ab7fa96b91818d87c6b6d)
+        ;
+
+        
+    
+    
+            circle_marker_15328feb1da8f491c5e9643e4d8eaa73.bindTooltip(
+                `<div>
+                     MUKURU: 0.56 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_83398a3fc9d33f6a2cad66002acd397e = L.circleMarker(
+                [-1.3157894736842106, 36.88526315789474],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_1a27818cf10675263be8a9a4e361a039 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_548b3e1fb0829447d3c6e0eae71f6926 = $(`<div id="html_548b3e1fb0829447d3c6e0eae71f6926" style="width: 100.0%; height: 100.0%;">         <b>MUKURU KWA NJENGA</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 19<br>         School-Age Pop: 12,158<br>         Schools per 1000: 1.56<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 6,368<br>         Infrastructure Stress: 25.1         </div>`)[0];
+                popup_1a27818cf10675263be8a9a4e361a039.setContent(html_548b3e1fb0829447d3c6e0eae71f6926);
+            
+        
+
+        circle_marker_83398a3fc9d33f6a2cad66002acd397e.bindPopup(popup_1a27818cf10675263be8a9a4e361a039)
+        ;
+
+        
+    
+    
+            circle_marker_83398a3fc9d33f6a2cad66002acd397e.bindTooltip(
+                `<div>
+                     MUKURU KWA NJENGA: 1.56 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a632549ef29e7637a72ac3b0857a6c0e = L.circleMarker(
+                [-1.3157894736842106, 36.88526315789474],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_0af020225e81761ff4f95649c177a7f8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_27cecc200ba1741af98b503e440aa7fc = $(`<div id="html_27cecc200ba1741af98b503e440aa7fc" style="width: 100.0%; height: 100.0%;">         <b>MUKURU KWA NJENGA</b><br>         Division: EMBAKASI<br>         Constituency: MAKADARA<br>         Schools: 19<br>         School-Age Pop: 12,158<br>         Schools per 1000: 1.56<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 6,368<br>         Infrastructure Stress: 25.1         </div>`)[0];
+                popup_0af020225e81761ff4f95649c177a7f8.setContent(html_27cecc200ba1741af98b503e440aa7fc);
+            
+        
+
+        circle_marker_a632549ef29e7637a72ac3b0857a6c0e.bindPopup(popup_0af020225e81761ff4f95649c177a7f8)
+        ;
+
+        
+    
+    
+            circle_marker_a632549ef29e7637a72ac3b0857a6c0e.bindTooltip(
+                `<div>
+                     MUKURU KWA NJENGA: 1.56 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3b0d583d2b42a6df913a0ce3276d8de2 = L.circleMarker(
+                [-1.31, 36.83583333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_4ce7e28f0264f506b4f3e252c904c19e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f171683455c6261a839bb332b9ccacf2 = $(`<div id="html_f171683455c6261a839bb332b9ccacf2" style="width: 100.0%; height: 100.0%;">         <b>MUKURU NYAYO</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 12<br>         School-Age Pop: 9,871<br>         Schools per 1000: 1.22<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 5,170<br>         Infrastructure Stress: 32.5         </div>`)[0];
+                popup_4ce7e28f0264f506b4f3e252c904c19e.setContent(html_f171683455c6261a839bb332b9ccacf2);
+            
+        
+
+        circle_marker_3b0d583d2b42a6df913a0ce3276d8de2.bindPopup(popup_4ce7e28f0264f506b4f3e252c904c19e)
+        ;
+
+        
+    
+    
+            circle_marker_3b0d583d2b42a6df913a0ce3276d8de2.bindTooltip(
+                `<div>
+                     MUKURU NYAYO: 1.22 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3aac0c7ab4dba8e5c08cdfa1cad35852 = L.circleMarker(
+                [-1.31, 36.84],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_2d9173a667a64e003ea619d721220d82 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_090c84f62c7cb9019874a307c57e09f6 = $(`<div id="html_090c84f62c7cb9019874a307c57e09f6" style="width: 100.0%; height: 100.0%;">         <b>MUKURUNYAYO</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 1<br>         School-Age Pop: 0<br>         Schools per 1000: 0.00<br>         Enrollment Rate: 0.0%<br>         Capacity Gap: 0<br>         Infrastructure Stress: 0.0         </div>`)[0];
+                popup_2d9173a667a64e003ea619d721220d82.setContent(html_090c84f62c7cb9019874a307c57e09f6);
+            
+        
+
+        circle_marker_3aac0c7ab4dba8e5c08cdfa1cad35852.bindPopup(popup_2d9173a667a64e003ea619d721220d82)
+        ;
+
+        
+    
+    
+            circle_marker_3aac0c7ab4dba8e5c08cdfa1cad35852.bindTooltip(
+                `<div>
+                     MUKURUNYAYO: 0.00 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_32b3643ff201aeb7a293fae7588a29ef = L.circleMarker(
+                [-1.2871428571428571, 36.69714285714286],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f6d27a9cde16208c8a87a32631fc69f1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e69e38e223c13e953133fc5497130778 = $(`<div id="html_e69e38e223c13e953133fc5497130778" style="width: 100.0%; height: 100.0%;">         <b>MUTUINI</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 7<br>         School-Age Pop: 6,746<br>         Schools per 1000: 1.04<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 3,533<br>         Infrastructure Stress: 44.3         </div>`)[0];
+                popup_f6d27a9cde16208c8a87a32631fc69f1.setContent(html_e69e38e223c13e953133fc5497130778);
+            
+        
+
+        circle_marker_32b3643ff201aeb7a293fae7588a29ef.bindPopup(popup_f6d27a9cde16208c8a87a32631fc69f1)
+        ;
+
+        
+    
+    
+            circle_marker_32b3643ff201aeb7a293fae7588a29ef.bindTooltip(
+                `<div>
+                     MUTUINI: 1.04 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_23446815006a9e6c70cf938b9b5660dc = L.circleMarker(
+                [-1.23, 36.93],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_81190e3331974ddb4d2d200256123371 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_810122829b9f26d4b2b4e3ec77432fff = $(`<div id="html_810122829b9f26d4b2b4e3ec77432fff" style="width: 100.0%; height: 100.0%;">         <b>MWIKI</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 5<br>         School-Age Pop: 470<br>         Schools per 1000: 10.63<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 246<br>         Infrastructure Stress: 17.2         </div>`)[0];
+                popup_81190e3331974ddb4d2d200256123371.setContent(html_810122829b9f26d4b2b4e3ec77432fff);
+            
+        
+
+        circle_marker_23446815006a9e6c70cf938b9b5660dc.bindPopup(popup_81190e3331974ddb4d2d200256123371)
+        ;
+
+        
+    
+    
+            circle_marker_23446815006a9e6c70cf938b9b5660dc.bindTooltip(
+                `<div>
+                     MWIKI: 10.63 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2bdee254f8d688df8ef65b20bbef9437 = L.circleMarker(
+                [-1.316521739130435, 36.82086956521739],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_8c331b80f4dfe719b7649c45b58c87a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e032fd1257df063d2abe4c0114ed8b09 = $(`<div id="html_e032fd1257df063d2abe4c0114ed8b09" style="width: 100.0%; height: 100.0%;">         <b>NAIROBI WEST</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 23<br>         School-Age Pop: 41,942<br>         Schools per 1000: 0.55<br>         Enrollment Rate: 17.2%<br>         Capacity Gap: 34,725<br>         Infrastructure Stress: 24.2         </div>`)[0];
+                popup_8c331b80f4dfe719b7649c45b58c87a6.setContent(html_e032fd1257df063d2abe4c0114ed8b09);
+            
+        
+
+        circle_marker_2bdee254f8d688df8ef65b20bbef9437.bindPopup(popup_8c331b80f4dfe719b7649c45b58c87a6)
+        ;
+
+        
+    
+    
+            circle_marker_2bdee254f8d688df8ef65b20bbef9437.bindTooltip(
+                `<div>
+                     NAIROBI WEST: 0.55 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a7f583e7db5a9cb558b46488945f42ab = L.circleMarker(
+                [-1.27, 36.824],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_871b74fe8055d1a3450327bd08e9e35a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b79e131bd60cfd26adb8e710189804a9 = $(`<div id="html_b79e131bd60cfd26adb8e710189804a9" style="width: 100.0%; height: 100.0%;">         <b>NGARA</b><br>         Division: STAREHE<br>         Constituency: STAREHE<br>         Schools: 10<br>         School-Age Pop: 9,615<br>         Schools per 1000: 1.04<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 5,036<br>         Infrastructure Stress: 31.7         </div>`)[0];
+                popup_871b74fe8055d1a3450327bd08e9e35a.setContent(html_b79e131bd60cfd26adb8e710189804a9);
+            
+        
+
+        circle_marker_a7f583e7db5a9cb558b46488945f42ab.bindPopup(popup_871b74fe8055d1a3450327bd08e9e35a)
+        ;
+
+        
+    
+    
+            circle_marker_a7f583e7db5a9cb558b46488945f42ab.bindTooltip(
+                `<div>
+                     NGARA: 1.04 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_44098701f8341e1dc987ad3d895c5828 = L.circleMarker(
+                [-1.256, 36.919333333333334],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_eff4cb6b1d369845e3c27139b68eb5d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_865b3134ba983df2aa0647e9261c6319 = $(`<div id="html_865b3134ba983df2aa0647e9261c6319" style="width: 100.0%; height: 100.0%;">         <b>NJIRU</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 15<br>         School-Age Pop: 11,177<br>         Schools per 1000: 1.34<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 5,854<br>         Infrastructure Stress: 36.3         </div>`)[0];
+                popup_eff4cb6b1d369845e3c27139b68eb5d2.setContent(html_865b3134ba983df2aa0647e9261c6319);
+            
+        
+
+        circle_marker_44098701f8341e1dc987ad3d895c5828.bindPopup(popup_eff4cb6b1d369845e3c27139b68eb5d2)
+        ;
+
+        
+    
+    
+            circle_marker_44098701f8341e1dc987ad3d895c5828.bindTooltip(
+                `<div>
+                     NJIRU: 1.34 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2898e0681284f88151c182d4560b172f = L.circleMarker(
+                [-1.31, 36.77],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_85daf580e5ec04a7dadf750efe715391 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_66c1df14d9d19b870afb4f65febf18df = $(`<div id="html_66c1df14d9d19b870afb4f65febf18df" style="width: 100.0%; height: 100.0%;">         <b>OLYMPIC</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 1<br>         School-Age Pop: 340<br>         Schools per 1000: 2.94<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 178<br>         Infrastructure Stress: 73.1         </div>`)[0];
+                popup_85daf580e5ec04a7dadf750efe715391.setContent(html_66c1df14d9d19b870afb4f65febf18df);
+            
+        
+
+        circle_marker_2898e0681284f88151c182d4560b172f.bindPopup(popup_85daf580e5ec04a7dadf750efe715391)
+        ;
+
+        
+    
+    
+            circle_marker_2898e0681284f88151c182d4560b172f.bindTooltip(
+                `<div>
+                     OLYMPIC: 2.94 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e62ccea3f8040a64144c2c524ff18a1a = L.circleMarker(
+                [-1.26, 36.84],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_1ac931616fb8fd9263a128f24bb09cb9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7105aae82e992092e9ef9870ed3283e4 = $(`<div id="html_7105aae82e992092e9ef9870ed3283e4" style="width: 100.0%; height: 100.0%;">         <b>PANGANI</b><br>         Division: STAREHE<br>         Constituency: STAREHE<br>         Schools: 1<br>         School-Age Pop: 365<br>         Schools per 1000: 2.74<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 191<br>         Infrastructure Stress: 37.4         </div>`)[0];
+                popup_1ac931616fb8fd9263a128f24bb09cb9.setContent(html_7105aae82e992092e9ef9870ed3283e4);
+            
+        
+
+        circle_marker_e62ccea3f8040a64144c2c524ff18a1a.bindPopup(popup_1ac931616fb8fd9263a128f24bb09cb9)
+        ;
+
+        
+    
+    
+            circle_marker_e62ccea3f8040a64144c2c524ff18a1a.bindTooltip(
+                `<div>
+                     PANGANI: 2.74 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eea232a63c51ffc021b584ebde05b4c1 = L.circleMarker(
+                [-1.2583333333333333, 36.79833333333333],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_a4ea4a7f6a6e820461d2d0596da13d2a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cecb292bf9cd3fcc10cbcbd4adb7b18f = $(`<div id="html_cecb292bf9cd3fcc10cbcbd4adb7b18f" style="width: 100.0%; height: 100.0%;">         <b>PARKLANDS</b><br>         Division: WESTLANDS<br>         Constituency: WESTLANDS<br>         Schools: 6<br>         School-Age Pop: 4,729<br>         Schools per 1000: 1.27<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,477<br>         Infrastructure Stress: 30.1         </div>`)[0];
+                popup_a4ea4a7f6a6e820461d2d0596da13d2a.setContent(html_cecb292bf9cd3fcc10cbcbd4adb7b18f);
+            
+        
+
+        circle_marker_eea232a63c51ffc021b584ebde05b4c1.bindPopup(popup_a4ea4a7f6a6e820461d2d0596da13d2a)
+        ;
+
+        
+    
+    
+            circle_marker_eea232a63c51ffc021b584ebde05b4c1.bindTooltip(
+                `<div>
+                     PARKLANDS: 1.27 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e7e7723edd779f68868de661eaad9561 = L.circleMarker(
+                [-1.28, 36.84],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_809070f8582b32557671c95f9d485931 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d40efc38121e119ee5595602f8a91f63 = $(`<div id="html_d40efc38121e119ee5595602f8a91f63" style="width: 100.0%; height: 100.0%;">         <b>PUMWANI</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 1<br>         School-Age Pop: 588<br>         Schools per 1000: 1.70<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 308<br>         Infrastructure Stress: 58.7         </div>`)[0];
+                popup_809070f8582b32557671c95f9d485931.setContent(html_d40efc38121e119ee5595602f8a91f63);
+            
+        
+
+        circle_marker_e7e7723edd779f68868de661eaad9561.bindPopup(popup_809070f8582b32557671c95f9d485931)
+        ;
+
+        
+    
+    
+            circle_marker_e7e7723edd779f68868de661eaad9561.bindTooltip(
+                `<div>
+                     PUMWANI: 1.70 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5f9472ef5989cb5e03e9bf46bdd21d7 = L.circleMarker(
+                [-1.2906976744186047, 36.73651162790698],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_b2fed06512d0c821e781e0ab3d87a9a9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4c3da12f53823342bedd78ccf7478178 = $(`<div id="html_4c3da12f53823342bedd78ccf7478178" style="width: 100.0%; height: 100.0%;">         <b>RIRUTA</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 43<br>         School-Age Pop: 23,406<br>         Schools per 1000: 1.84<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 12,259<br>         Infrastructure Stress: 30.8         </div>`)[0];
+                popup_b2fed06512d0c821e781e0ab3d87a9a9.setContent(html_4c3da12f53823342bedd78ccf7478178);
+            
+        
+
+        circle_marker_f5f9472ef5989cb5e03e9bf46bdd21d7.bindPopup(popup_b2fed06512d0c821e781e0ab3d87a9a9)
+        ;
+
+        
+    
+    
+            circle_marker_f5f9472ef5989cb5e03e9bf46bdd21d7.bindTooltip(
+                `<div>
+                     RIRUTA: 1.84 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f969cc03d31efb88c9bdd31daf6788f5 = L.circleMarker(
+                [-1.216764705882353, 36.872058823529414],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_687c984fb9e7919e8a8d31b3f1941e7f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed73700b566b76b67daba9ecb633e565 = $(`<div id="html_ed73700b566b76b67daba9ecb633e565" style="width: 100.0%; height: 100.0%;">         <b>ROYSAMBU</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 34<br>         School-Age Pop: 18,261<br>         Schools per 1000: 1.86<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 9,564<br>         Infrastructure Stress: 20.5         </div>`)[0];
+                popup_687c984fb9e7919e8a8d31b3f1941e7f.setContent(html_ed73700b566b76b67daba9ecb633e565);
+            
+        
+
+        circle_marker_f969cc03d31efb88c9bdd31daf6788f5.bindPopup(popup_687c984fb9e7919e8a8d31b3f1941e7f)
+        ;
+
+        
+    
+    
+            circle_marker_f969cc03d31efb88c9bdd31daf6788f5.bindTooltip(
+                `<div>
+                     ROYSAMBU: 1.86 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5a1cd7c1226c92969abe3e0635dd33e0 = L.circleMarker(
+                [-1.266315789473684, 37.00473684210527],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_0547b07483b21597bcd7fedd9857ba4b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_44ba1a61c5c90ce3c1e7074dcbafccd9 = $(`<div id="html_44ba1a61c5c90ce3c1e7074dcbafccd9" style="width: 100.0%; height: 100.0%;">         <b>RUAI</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 19<br>         School-Age Pop: 9,886<br>         Schools per 1000: 1.92<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 5,178<br>         Infrastructure Stress: 22.6         </div>`)[0];
+                popup_0547b07483b21597bcd7fedd9857ba4b.setContent(html_44ba1a61c5c90ce3c1e7074dcbafccd9);
+            
+        
+
+        circle_marker_5a1cd7c1226c92969abe3e0635dd33e0.bindPopup(popup_0547b07483b21597bcd7fedd9857ba4b)
+        ;
+
+        
+    
+    
+            circle_marker_5a1cd7c1226c92969abe3e0635dd33e0.bindTooltip(
+                `<div>
+                     RUAI: 1.92 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d76f63656b958df2f883a61d8dafc7e = L.circleMarker(
+                [-1.2517105263157895, 36.86802631578947],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_75a9c211a66cf19ffabf6f3c84af4087 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5af6c99dae9aaa6f08c425b3f5c35202 = $(`<div id="html_5af6c99dae9aaa6f08c425b3f5c35202" style="width: 100.0%; height: 100.0%;">         <b>RUARAKA</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 76<br>         School-Age Pop: 22,627<br>         Schools per 1000: 3.36<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 11,851<br>         Infrastructure Stress: 30.8         </div>`)[0];
+                popup_75a9c211a66cf19ffabf6f3c84af4087.setContent(html_5af6c99dae9aaa6f08c425b3f5c35202);
+            
+        
+
+        circle_marker_2d76f63656b958df2f883a61d8dafc7e.bindPopup(popup_75a9c211a66cf19ffabf6f3c84af4087)
+        ;
+
+        
+    
+    
+            circle_marker_2d76f63656b958df2f883a61d8dafc7e.bindTooltip(
+                `<div>
+                     RUARAKA: 3.36 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_801c8f93a854c04f69295d6d97889bed = L.circleMarker(
+                [-1.2517105263157895, 36.86802631578947],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_a73790e374ebaf6ebc4a6ab5e06aec69 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_391d33386d3753944f7b107844b36f83 = $(`<div id="html_391d33386d3753944f7b107844b36f83" style="width: 100.0%; height: 100.0%;">         <b>RUARAKA</b><br>         Division: KASARANI<br>         Constituency: STAREHE<br>         Schools: 76<br>         School-Age Pop: 22,627<br>         Schools per 1000: 3.36<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 11,851<br>         Infrastructure Stress: 30.8         </div>`)[0];
+                popup_a73790e374ebaf6ebc4a6ab5e06aec69.setContent(html_391d33386d3753944f7b107844b36f83);
+            
+        
+
+        circle_marker_801c8f93a854c04f69295d6d97889bed.bindPopup(popup_a73790e374ebaf6ebc4a6ab5e06aec69)
+        ;
+
+        
+    
+    
+            circle_marker_801c8f93a854c04f69295d6d97889bed.bindTooltip(
+                `<div>
+                     RUARAKA: 3.36 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7f86a32a4797703075374a4b61fe23bb = L.circleMarker(
+                [-1.31, 36.78],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_328c43065c4174d3e9a9f3ffa26d5adf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_60b13a7afeb42ae047e22e47120e72b2 = $(`<div id="html_60b13a7afeb42ae047e22e47120e72b2" style="width: 100.0%; height: 100.0%;">         <b>SARANGOMBE</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 1<br>         School-Age Pop: 664<br>         Schools per 1000: 1.51<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 348<br>         Infrastructure Stress: 100.0         </div>`)[0];
+                popup_328c43065c4174d3e9a9f3ffa26d5adf.setContent(html_60b13a7afeb42ae047e22e47120e72b2);
+            
+        
+
+        circle_marker_7f86a32a4797703075374a4b61fe23bb.bindPopup(popup_328c43065c4174d3e9a9f3ffa26d5adf)
+        ;
+
+        
+    
+    
+            circle_marker_7f86a32a4797703075374a4b61fe23bb.bindTooltip(
+                `<div>
+                     SARANGOMBE: 1.51 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_df2c9e1df2ad9b82f5dd1170d69659d2 = L.circleMarker(
+                [-1.295, 36.89],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_48ac2c3528310f857847f18d2c7729d6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_815c1814fce5fddd2b6e44bb6176a726 = $(`<div id="html_815c1814fce5fddd2b6e44bb6176a726" style="width: 100.0%; height: 100.0%;">         <b>SAVANNAH</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 2<br>         School-Age Pop: 825<br>         Schools per 1000: 2.42<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 432<br>         Infrastructure Stress: 27.6         </div>`)[0];
+                popup_48ac2c3528310f857847f18d2c7729d6.setContent(html_815c1814fce5fddd2b6e44bb6176a726);
+            
+        
+
+        circle_marker_df2c9e1df2ad9b82f5dd1170d69659d2.bindPopup(popup_48ac2c3528310f857847f18d2c7729d6)
+        ;
+
+        
+    
+    
+            circle_marker_df2c9e1df2ad9b82f5dd1170d69659d2.bindTooltip(
+                `<div>
+                     SAVANNAH: 2.42 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0145c7e2751687ac6405a8f6111080e9 = L.circleMarker(
+                [-1.3096969696969696, 36.77818181818182],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_2260ad0106553d1fe3b988a122dad1a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_92852582ca539222a3da75ac9a408fbd = $(`<div id="html_92852582ca539222a3da75ac9a408fbd" style="width: 100.0%; height: 100.0%;">         <b>SERA NGOMBE</b><br>         Division: KIBERA<br>         Constituency: LANGATA<br>         Schools: 33<br>         School-Age Pop: 15,561<br>         Schools per 1000: 2.12<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 8,150<br>         Infrastructure Stress: 27.9         </div>`)[0];
+                popup_2260ad0106553d1fe3b988a122dad1a4.setContent(html_92852582ca539222a3da75ac9a408fbd);
+            
+        
+
+        circle_marker_0145c7e2751687ac6405a8f6111080e9.bindPopup(popup_2260ad0106553d1fe3b988a122dad1a4)
+        ;
+
+        
+    
+    
+            circle_marker_0145c7e2751687ac6405a8f6111080e9.bindTooltip(
+                `<div>
+                     SERA NGOMBE: 2.12 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27a33321a8dbb24aa0c8d6cb5c87fe1e = L.circleMarker(
+                [-1.29, 36.85],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_f442df5cc51fbd06efec69b54f4fd22f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_450977b26068ea70992a154ed5de267f = $(`<div id="html_450977b26068ea70992a154ed5de267f" style="width: 100.0%; height: 100.0%;">         <b>SHAURIMOYO</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 1<br>         School-Age Pop: 2,009<br>         Schools per 1000: 0.50<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 1,052<br>         Infrastructure Stress: 100.0         </div>`)[0];
+                popup_f442df5cc51fbd06efec69b54f4fd22f.setContent(html_450977b26068ea70992a154ed5de267f);
+            
+        
+
+        circle_marker_27a33321a8dbb24aa0c8d6cb5c87fe1e.bindPopup(popup_f442df5cc51fbd06efec69b54f4fd22f)
+        ;
+
+        
+    
+    
+            circle_marker_27a33321a8dbb24aa0c8d6cb5c87fe1e.bindTooltip(
+                `<div>
+                     SHAURIMOYO: 0.50 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5ea07b9c75c9ec51a671b28252257c8 = L.circleMarker(
+                [-1.3, 36.83],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_fa1232c27118cd353266f54163d72720 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3b5068a1e8a4713f3b37f99d4e3d3a7 = $(`<div id="html_c3b5068a1e8a4713f3b37f99d4e3d3a7" style="width: 100.0%; height: 100.0%;">         <b>SOUTH B</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 1<br>         School-Age Pop: 1,755<br>         Schools per 1000: 0.57<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 919<br>         Infrastructure Stress: 60.7         </div>`)[0];
+                popup_fa1232c27118cd353266f54163d72720.setContent(html_c3b5068a1e8a4713f3b37f99d4e3d3a7);
+            
+        
+
+        circle_marker_a5ea07b9c75c9ec51a671b28252257c8.bindPopup(popup_fa1232c27118cd353266f54163d72720)
+        ;
+
+        
+    
+    
+            circle_marker_a5ea07b9c75c9ec51a671b28252257c8.bindTooltip(
+                `<div>
+                     SOUTH B: 0.57 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27b7ad4766111c1becd4cbe5a1acb74e = L.circleMarker(
+                [-1.28, 36.82714285714285],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_5b947563ab4b922468e7ca3e56c966f9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_75ea942e70921e6c79370f90e875628c = $(`<div id="html_75ea942e70921e6c79370f90e875628c" style="width: 100.0%; height: 100.0%;">         <b>STAREHE</b><br>         Division: STAREHE<br>         Constituency: STAREHE<br>         Schools: 7<br>         School-Age Pop: 5,060<br>         Schools per 1000: 1.38<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,650<br>         Infrastructure Stress: 32.3         </div>`)[0];
+                popup_5b947563ab4b922468e7ca3e56c966f9.setContent(html_75ea942e70921e6c79370f90e875628c);
+            
+        
+
+        circle_marker_27b7ad4766111c1becd4cbe5a1acb74e.bindPopup(popup_5b947563ab4b922468e7ca3e56c966f9)
+        ;
+
+        
+    
+    
+            circle_marker_27b7ad4766111c1becd4cbe5a1acb74e.bindTooltip(
+                `<div>
+                     STAREHE: 1.38 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f1f83c9ec9d5815523013237949d018 = L.circleMarker(
+                [-1.29, 36.85],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_b23ae5e553e98cab5dd4031b7d4ad4a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_24129a4c7d417e54be9c220705b5c9c1 = $(`<div id="html_24129a4c7d417e54be9c220705b5c9c1" style="width: 100.0%; height: 100.0%;">         <b>UHURU</b><br>         Division: PUMWANI<br>         Constituency: KAMUKUNJI<br>         Schools: 1<br>         School-Age Pop: 160<br>         Schools per 1000: 6.27<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 84<br>         Infrastructure Stress: 20.2         </div>`)[0];
+                popup_b23ae5e553e98cab5dd4031b7d4ad4a8.setContent(html_24129a4c7d417e54be9c220705b5c9c1);
+            
+        
+
+        circle_marker_4f1f83c9ec9d5815523013237949d018.bindPopup(popup_b23ae5e553e98cab5dd4031b7d4ad4a8)
+        ;
+
+        
+    
+    
+            circle_marker_4f1f83c9ec9d5815523013237949d018.bindTooltip(
+                `<div>
+                     UHURU: 6.27 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c3e5f3140fd73540adcb83d3e497c5a3 = L.circleMarker(
+                [-1.2820408163265307, 36.89938775510204],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_1d06121c3c6f1f51d8216259e3d0b471 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_95d9a424b77cc32d852167f8286176f7 = $(`<div id="html_95d9a424b77cc32d852167f8286176f7" style="width: 100.0%; height: 100.0%;">         <b>UMOJA</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 49<br>         School-Age Pop: 33,136<br>         Schools per 1000: 1.48<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 17,355<br>         Infrastructure Stress: 23.7         </div>`)[0];
+                popup_1d06121c3c6f1f51d8216259e3d0b471.setContent(html_95d9a424b77cc32d852167f8286176f7);
+            
+        
+
+        circle_marker_c3e5f3140fd73540adcb83d3e497c5a3.bindPopup(popup_1d06121c3c6f1f51d8216259e3d0b471)
+        ;
+
+        
+    
+    
+            circle_marker_c3e5f3140fd73540adcb83d3e497c5a3.bindTooltip(
+                `<div>
+                     UMOJA: 1.48 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2ca5ebdc8fa6e5aeb246aca6b33f9230 = L.circleMarker(
+                [-1.25, 36.86],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_42431d825088bd352fdfc5670f460f7e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7291bf5bbf494a0d60212d3934b983de = $(`<div id="html_7291bf5bbf494a0d60212d3934b983de" style="width: 100.0%; height: 100.0%;">         <b>UTALI</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 1<br>         School-Age Pop: 218<br>         Schools per 1000: 4.58<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 114<br>         Infrastructure Stress: 31.7         </div>`)[0];
+                popup_42431d825088bd352fdfc5670f460f7e.setContent(html_7291bf5bbf494a0d60212d3934b983de);
+            
+        
+
+        circle_marker_2ca5ebdc8fa6e5aeb246aca6b33f9230.bindPopup(popup_42431d825088bd352fdfc5670f460f7e)
+        ;
+
+        
+    
+    
+            circle_marker_2ca5ebdc8fa6e5aeb246aca6b33f9230.bindTooltip(
+                `<div>
+                     UTALI: 4.58 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db38fd858a55037455cfe5c6479e4709 = L.circleMarker(
+                [-1.25, 36.87],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_4ba24885f7fb29f3995bb1a9bcdb69d5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e7a09451045afb4c762d6f904eb8e415 = $(`<div id="html_e7a09451045afb4c762d6f904eb8e415" style="width: 100.0%; height: 100.0%;">         <b>UTALII</b><br>         Division: KASARANI<br>         Constituency: KASARANI<br>         Schools: 1<br>         School-Age Pop: 210<br>         Schools per 1000: 4.76<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 110<br>         Infrastructure Stress: 40.2         </div>`)[0];
+                popup_4ba24885f7fb29f3995bb1a9bcdb69d5.setContent(html_e7a09451045afb4c762d6f904eb8e415);
+            
+        
+
+        circle_marker_db38fd858a55037455cfe5c6479e4709.bindPopup(popup_4ba24885f7fb29f3995bb1a9bcdb69d5)
+        ;
+
+        
+    
+    
+            circle_marker_db38fd858a55037455cfe5c6479e4709.bindTooltip(
+                `<div>
+                     UTALII: 4.76 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f7eb0872411d06f33e9043b0f6d7cca8 = L.circleMarker(
+                [-1.28, 36.97],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_abc5ed16e4a632ce82b80b6a66f81b0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_108f3079ea21d8af2c8a485e07ace746 = $(`<div id="html_108f3079ea21d8af2c8a485e07ace746" style="width: 100.0%; height: 100.0%;">         <b>UTAWALA</b><br>         Division: EMBAKASI<br>         Constituency: EMBAKASI<br>         Schools: 1<br>         School-Age Pop: 428<br>         Schools per 1000: 2.33<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 224<br>         Infrastructure Stress: 27.1         </div>`)[0];
+                popup_abc5ed16e4a632ce82b80b6a66f81b0e.setContent(html_108f3079ea21d8af2c8a485e07ace746);
+            
+        
+
+        circle_marker_f7eb0872411d06f33e9043b0f6d7cca8.bindPopup(popup_abc5ed16e4a632ce82b80b6a66f81b0e)
+        ;
+
+        
+    
+    
+            circle_marker_f7eb0872411d06f33e9043b0f6d7cca8.bindTooltip(
+                `<div>
+                     UTAWALA: 2.33 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3bbb07dba6045f8b02c3a243b0aeedde = L.circleMarker(
+                [-1.2675, 36.70375],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_eba43874dd3be22c1aac4681582a8f3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2139042fbbeaec836ee22c2cc2e24d5b = $(`<div id="html_2139042fbbeaec836ee22c2cc2e24d5b" style="width: 100.0%; height: 100.0%;">         <b>UTHIRU/RUTHIMITU</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 8<br>         School-Age Pop: 6,553<br>         Schools per 1000: 1.22<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 3,432<br>         Infrastructure Stress: 34.0         </div>`)[0];
+                popup_eba43874dd3be22c1aac4681582a8f3f.setContent(html_2139042fbbeaec836ee22c2cc2e24d5b);
+            
+        
+
+        circle_marker_3bbb07dba6045f8b02c3a243b0aeedde.bindPopup(popup_eba43874dd3be22c1aac4681582a8f3f)
+        ;
+
+        
+    
+    
+            circle_marker_3bbb07dba6045f8b02c3a243b0aeedde.bindTooltip(
+                `<div>
+                     UTHIRU/RUTHIMITU: 1.22 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3754014c285e2f0330bf8e49b47a51a2 = L.circleMarker(
+                [-1.31, 36.86],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_bd04c0bd3e73a4c335624fe2c09a401e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b809c831202dca250903574d1f5aecfd = $(`<div id="html_b809c831202dca250903574d1f5aecfd" style="width: 100.0%; height: 100.0%;">         <b>VIWANDA</b><br>         Division: MAKADARA<br>         Constituency: MAKADARA<br>         Schools: 3<br>         School-Age Pop: 4,046<br>         Schools per 1000: 0.74<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 2,119<br>         Infrastructure Stress: 75.5         </div>`)[0];
+                popup_bd04c0bd3e73a4c335624fe2c09a401e.setContent(html_b809c831202dca250903574d1f5aecfd);
+            
+        
+
+        circle_marker_3754014c285e2f0330bf8e49b47a51a2.bindPopup(popup_bd04c0bd3e73a4c335624fe2c09a401e)
+        ;
+
+        
+    
+    
+            circle_marker_3754014c285e2f0330bf8e49b47a51a2.bindTooltip(
+                `<div>
+                     VIWANDA: 0.74 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f51975f7863e02efa67ca0e0f8303671 = L.circleMarker(
+                [-1.281875, 36.716875],
+                {"bubblingMouseEvents": true, "color": "black", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_6a294ae64bde8e0101107f7023056267);
+        
+    
+        var popup_c02419b79c3b459e8315bc0704674f12 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5581f72a8476faba45c949dc95826ba2 = $(`<div id="html_5581f72a8476faba45c949dc95826ba2" style="width: 100.0%; height: 100.0%;">         <b>WAITHAKA</b><br>         Division: DAGORETTI<br>         Constituency: DAGORETTI<br>         Schools: 16<br>         School-Age Pop: 9,107<br>         Schools per 1000: 1.76<br>         Enrollment Rate: 47.6%<br>         Capacity Gap: 4,770<br>         Infrastructure Stress: 26.5         </div>`)[0];
+                popup_c02419b79c3b459e8315bc0704674f12.setContent(html_5581f72a8476faba45c949dc95826ba2);
+            
+        
+
+        circle_marker_f51975f7863e02efa67ca0e0f8303671.bindPopup(popup_c02419b79c3b459e8315bc0704674f12)
+        ;
+
+        
+    
+    
+            circle_marker_f51975f7863e02efa67ca0e0f8303671.bindTooltip(
+                `<div>
+                     WAITHAKA: 1.76 schools/1000
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_6a294ae64bde8e0101107f7023056267.addTo(map_4685d21126e9fa2a5d0a6afab5c7c302);
+        
+    
+            var feature_group_aaeac016573878677eef19b8fb62f184 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var polygon_85c9764c64cb704971dc30d2034e0fce = L.polygon(
+                [[-1.266888888888889, 36.74688888888889], [-1.1824999999999999, 36.90821428571428], [-1.23, 36.93], [-1.2572340425531916, 36.871702127659574], [-1.266888888888889, 36.74688888888889]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_2a784e5b501d0087023027c0e2bc09dc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5da82d76e37e8d9422e8d5a8a6966e1 = $(`<div id="html_c5da82d76e37e8d9422e8d5a8a6966e1" style="width: 100.0%; height: 100.0%;"><b>KASARANI</b><br>Constituency Boundary</div>`)[0];
+                popup_2a784e5b501d0087023027c0e2bc09dc.setContent(html_c5da82d76e37e8d9422e8d5a8a6966e1);
+            
+        
+
+        polygon_85c9764c64cb704971dc30d2034e0fce.bindPopup(popup_2a784e5b501d0087023027c0e2bc09dc)
+        ;
+
+        
+    
+    
+            polygon_85c9764c64cb704971dc30d2034e0fce.bindTooltip(
+                `<div>
+                     KASARANI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_62a901e510093e684c5914ab5904f700 = L.polygon(
+                [[-1.28, 36.84], [-1.26, 36.852105263157895], [-1.277, 36.868], [-1.2925, 36.85875], [-1.29, 36.84666666666667], [-1.28, 36.84]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_55dc494ac9a8ef12b91fbd7a6b41cc98 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f3c030a73a687e4484d856426da39325 = $(`<div id="html_f3c030a73a687e4484d856426da39325" style="width: 100.0%; height: 100.0%;"><b>KAMUKUNJI</b><br>Constituency Boundary</div>`)[0];
+                popup_55dc494ac9a8ef12b91fbd7a6b41cc98.setContent(html_f3c030a73a687e4484d856426da39325);
+            
+        
+
+        polygon_62a901e510093e684c5914ab5904f700.bindPopup(popup_55dc494ac9a8ef12b91fbd7a6b41cc98)
+        ;
+
+        
+    
+    
+            polygon_62a901e510093e684c5914ab5904f700.bindTooltip(
+                `<div>
+                     KAMUKUNJI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_bbb7c0ff02f6d4a705bf9881563a8ee6 = L.polygon(
+                [[-1.2875, 36.79083333333333], [-1.26, 36.852105263157895], [-1.28, 36.88], [-1.3157894736842106, 36.88526315789474], [-1.31, 36.83583333333333], [-1.2875, 36.79083333333333]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_b34ef2cbfed2e70209898d4abef3229b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4cf569369be13d7c99ff6bebfe6bc63f = $(`<div id="html_4cf569369be13d7c99ff6bebfe6bc63f" style="width: 100.0%; height: 100.0%;"><b>MAKADARA</b><br>Constituency Boundary</div>`)[0];
+                popup_b34ef2cbfed2e70209898d4abef3229b.setContent(html_4cf569369be13d7c99ff6bebfe6bc63f);
+            
+        
+
+        polygon_bbb7c0ff02f6d4a705bf9881563a8ee6.bindPopup(popup_b34ef2cbfed2e70209898d4abef3229b)
+        ;
+
+        
+    
+    
+            polygon_bbb7c0ff02f6d4a705bf9881563a8ee6.bindTooltip(
+                `<div>
+                     MAKADARA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_ffb07a5108d1ad22b76f6afb769881bc = L.polygon(
+                [[-1.31, 36.8], [-1.31, 36.70333333333333], [-1.2871428571428571, 36.69714285714286], [-1.2675, 36.70375], [-1.2453333333333334, 36.89733333333333], [-1.2771428571428571, 36.864285714285714], [-1.31, 36.8]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_63ad672683b412622b3d95a161038262 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_253b9502a6e76ece3ce7a65acdac4221 = $(`<div id="html_253b9502a6e76ece3ce7a65acdac4221" style="width: 100.0%; height: 100.0%;"><b>DAGORETTI</b><br>Constituency Boundary</div>`)[0];
+                popup_63ad672683b412622b3d95a161038262.setContent(html_253b9502a6e76ece3ce7a65acdac4221);
+            
+        
+
+        polygon_ffb07a5108d1ad22b76f6afb769881bc.bindPopup(popup_63ad672683b412622b3d95a161038262)
+        ;
+
+        
+    
+    
+            polygon_ffb07a5108d1ad22b76f6afb769881bc.bindTooltip(
+                `<div>
+                     DAGORETTI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_692342cb6960f4c73800968a2593df07 = L.polygon(
+                [[-1.266315789473684, 37.00473684210527], [-1.3157894736842106, 36.88526315789474], [-1.31, 36.86], [-1.2449295774647888, 36.88422535211268], [-1.2272058823529413, 36.92205882352941], [-1.266315789473684, 37.00473684210527]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_6e8464ca0ae41975732555a280224412 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c013777b6b452e1d931cca99c0ee8ed = $(`<div id="html_4c013777b6b452e1d931cca99c0ee8ed" style="width: 100.0%; height: 100.0%;"><b>EMBAKASI</b><br>Constituency Boundary</div>`)[0];
+                popup_6e8464ca0ae41975732555a280224412.setContent(html_4c013777b6b452e1d931cca99c0ee8ed);
+            
+        
+
+        polygon_692342cb6960f4c73800968a2593df07.bindPopup(popup_6e8464ca0ae41975732555a280224412)
+        ;
+
+        
+    
+    
+            polygon_692342cb6960f4c73800968a2593df07.bindTooltip(
+                `<div>
+                     EMBAKASI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_ea1fab104519ce01d560cefb9241cce6 = L.polygon(
+                [[-1.250714285714286, 36.74285714285714], [-1.2272058823529413, 36.92205882352941], [-1.2771428571428571, 36.864285714285714], [-1.2875, 36.79083333333333], [-1.2797435897435898, 36.74897435897436], [-1.250714285714286, 36.74285714285714]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_f0c66c36112826161c2ab7ad6659cba2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c9b59f26fe6a50f842eaf1327f8b3c1b = $(`<div id="html_c9b59f26fe6a50f842eaf1327f8b3c1b" style="width: 100.0%; height: 100.0%;"><b>WESTLANDS</b><br>Constituency Boundary</div>`)[0];
+                popup_f0c66c36112826161c2ab7ad6659cba2.setContent(html_c9b59f26fe6a50f842eaf1327f8b3c1b);
+            
+        
+
+        polygon_ea1fab104519ce01d560cefb9241cce6.bindPopup(popup_f0c66c36112826161c2ab7ad6659cba2)
+        ;
+
+        
+    
+    
+            polygon_ea1fab104519ce01d560cefb9241cce6.bindTooltip(
+                `<div>
+                     WESTLANDS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_276cf0d0d52488e355432a4d87264d04 = L.polygon(
+                [[-1.28, 36.82714285714285], [-1.27, 36.824], [-1.26, 36.84], [-1.2517105263157895, 36.86802631578947], [-1.2572340425531916, 36.871702127659574], [-1.28, 36.82714285714285]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_a028239087f39ab04bde10fdb86f2c12 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c27b7573814eba49c0ac4cbf20945468 = $(`<div id="html_c27b7573814eba49c0ac4cbf20945468" style="width: 100.0%; height: 100.0%;"><b>STAREHE</b><br>Constituency Boundary</div>`)[0];
+                popup_a028239087f39ab04bde10fdb86f2c12.setContent(html_c27b7573814eba49c0ac4cbf20945468);
+            
+        
+
+        polygon_276cf0d0d52488e355432a4d87264d04.bindPopup(popup_a028239087f39ab04bde10fdb86f2c12)
+        ;
+
+        
+    
+    
+            polygon_276cf0d0d52488e355432a4d87264d04.bindTooltip(
+                `<div>
+                     STAREHE
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_4c2b3e39bfbf1b4ece500ca84d4b8278 = L.polygon(
+                [[-1.36, 36.73], [-1.31, 36.70333333333333], [-1.1824999999999999, 36.90821428571428], [-1.2272058823529413, 36.92205882352941], [-1.316521739130435, 36.82086956521739], [-1.36, 36.73]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_aaeac016573878677eef19b8fb62f184);
+        
+    
+        var popup_97da720d724076c9900b3c1b2f2f92ce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_01af334264a6fc1b2ab6bb69f8d86d44 = $(`<div id="html_01af334264a6fc1b2ab6bb69f8d86d44" style="width: 100.0%; height: 100.0%;"><b>LANGATA</b><br>Constituency Boundary</div>`)[0];
+                popup_97da720d724076c9900b3c1b2f2f92ce.setContent(html_01af334264a6fc1b2ab6bb69f8d86d44);
+            
+        
+
+        polygon_4c2b3e39bfbf1b4ece500ca84d4b8278.bindPopup(popup_97da720d724076c9900b3c1b2f2f92ce)
+        ;
+
+        
+    
+    
+            polygon_4c2b3e39bfbf1b4ece500ca84d4b8278.bindTooltip(
+                `<div>
+                     LANGATA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_aaeac016573878677eef19b8fb62f184.addTo(map_4685d21126e9fa2a5d0a6afab5c7c302);
+        
+    
+            var feature_group_8b3d6249fd6c46f275e3980398c4f7ee = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var polygon_e9cd34f96836d4c5baa31671505e1f13 = L.polygon(
+                [[-1.1824999999999999, 36.90821428571428], [-1.23, 36.93], [-1.2469444444444444, 36.89055555555555], [-1.2517105263157895, 36.86802631578947], [-1.25, 36.86], [-1.216764705882353, 36.872058823529414], [-1.1824999999999999, 36.90821428571428]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_8379b80136968cbe915f4f5144c12aad = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_edebb6af280770b4843ba7e7cf90d378 = $(`<div id="html_edebb6af280770b4843ba7e7cf90d378" style="width: 100.0%; height: 100.0%;"><b>KASARANI</b><br>Division Boundary</div>`)[0];
+                popup_8379b80136968cbe915f4f5144c12aad.setContent(html_edebb6af280770b4843ba7e7cf90d378);
+            
+        
+
+        polygon_e9cd34f96836d4c5baa31671505e1f13.bindPopup(popup_8379b80136968cbe915f4f5144c12aad)
+        ;
+
+        
+    
+    
+            polygon_e9cd34f96836d4c5baa31671505e1f13.bindTooltip(
+                `<div>
+                     KASARANI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_56380726b7b899dfef6456a9c43d3668 = L.polygon(
+                [[-1.27, 36.85181818181818], [-1.277, 36.868], [-1.29, 36.85], [-1.29, 36.84666666666667], [-1.28, 36.84], [-1.2704347826086957, 36.84], [-1.27, 36.85181818181818]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_a8dbd70023a9a4dcff807678381aadea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_77451c4a18121c42bf47a6e321ab6201 = $(`<div id="html_77451c4a18121c42bf47a6e321ab6201" style="width: 100.0%; height: 100.0%;"><b>PUMWANI</b><br>Division Boundary</div>`)[0];
+                popup_a8dbd70023a9a4dcff807678381aadea.setContent(html_77451c4a18121c42bf47a6e321ab6201);
+            
+        
+
+        polygon_56380726b7b899dfef6456a9c43d3668.bindPopup(popup_a8dbd70023a9a4dcff807678381aadea)
+        ;
+
+        
+    
+    
+            polygon_56380726b7b899dfef6456a9c43d3668.bindTooltip(
+                `<div>
+                     PUMWANI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_a7d5c639c8541ed7eb67ee1b2b57fc67 = L.polygon(
+                [[-1.3, 36.83], [-1.28, 36.88], [-1.31, 36.86], [-1.31, 36.83583333333333], [-1.3, 36.83]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_4bdcf74de5fa7947fe3d316429b28a86 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_194ab9ce9a2cedadee03db600ce9ea2e = $(`<div id="html_194ab9ce9a2cedadee03db600ce9ea2e" style="width: 100.0%; height: 100.0%;"><b>MAKADARA</b><br>Division Boundary</div>`)[0];
+                popup_4bdcf74de5fa7947fe3d316429b28a86.setContent(html_194ab9ce9a2cedadee03db600ce9ea2e);
+            
+        
+
+        polygon_a7d5c639c8541ed7eb67ee1b2b57fc67.bindPopup(popup_4bdcf74de5fa7947fe3d316429b28a86)
+        ;
+
+        
+    
+    
+            polygon_a7d5c639c8541ed7eb67ee1b2b57fc67.bindTooltip(
+                `<div>
+                     MAKADARA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_e42607d92d012880c10718eb784951ee = L.polygon(
+                [[-1.2453333333333334, 36.89733333333333], [-1.31, 36.8], [-1.2871428571428571, 36.69714285714286], [-1.2675, 36.70375], [-1.2453333333333334, 36.89733333333333]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_1c621499e983684e69cf14c98fb4908d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65ae418ce024a8ce1483f0a40422a22e = $(`<div id="html_65ae418ce024a8ce1483f0a40422a22e" style="width: 100.0%; height: 100.0%;"><b>DAGORETTI</b><br>Division Boundary</div>`)[0];
+                popup_1c621499e983684e69cf14c98fb4908d.setContent(html_65ae418ce024a8ce1483f0a40422a22e);
+            
+        
+
+        polygon_e42607d92d012880c10718eb784951ee.bindPopup(popup_1c621499e983684e69cf14c98fb4908d)
+        ;
+
+        
+    
+    
+            polygon_e42607d92d012880c10718eb784951ee.bindTooltip(
+                `<div>
+                     DAGORETTI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_e4f2f051d5de9648609986cc243a9194 = L.polygon(
+                [[-1.266315789473684, 37.00473684210527], [-1.3157894736842106, 36.88526315789474], [-1.31, 36.86], [-1.2449295774647888, 36.88422535211268], [-1.2453333333333334, 36.89733333333333], [-1.266315789473684, 37.00473684210527]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_36a3ff05afc2290a5c2729723907bb61 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f242ab7231a481df7d7ec1b59c7596de = $(`<div id="html_f242ab7231a481df7d7ec1b59c7596de" style="width: 100.0%; height: 100.0%;"><b>EMBAKASI</b><br>Division Boundary</div>`)[0];
+                popup_36a3ff05afc2290a5c2729723907bb61.setContent(html_f242ab7231a481df7d7ec1b59c7596de);
+            
+        
+
+        polygon_e4f2f051d5de9648609986cc243a9194.bindPopup(popup_36a3ff05afc2290a5c2729723907bb61)
+        ;
+
+        
+    
+    
+            polygon_e4f2f051d5de9648609986cc243a9194.bindTooltip(
+                `<div>
+                     EMBAKASI
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_1eb3f09bdc3171f4401fd929c856a88b = L.polygon(
+                [[-1.245, 36.81125], [-1.2875, 36.79083333333333], [-1.2814285714285714, 36.76857142857143], [-1.266888888888889, 36.74688888888889], [-1.250714285714286, 36.74285714285714], [-1.245, 36.81125]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_3558ff2ab3049d073acdc6c54da5b1cb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da1efe2e795776a49878065bea8a6eaa = $(`<div id="html_da1efe2e795776a49878065bea8a6eaa" style="width: 100.0%; height: 100.0%;"><b>WESTLANDS</b><br>Division Boundary</div>`)[0];
+                popup_3558ff2ab3049d073acdc6c54da5b1cb.setContent(html_da1efe2e795776a49878065bea8a6eaa);
+            
+        
+
+        polygon_1eb3f09bdc3171f4401fd929c856a88b.bindPopup(popup_3558ff2ab3049d073acdc6c54da5b1cb)
+        ;
+
+        
+    
+    
+            polygon_1eb3f09bdc3171f4401fd929c856a88b.bindTooltip(
+                `<div>
+                     WESTLANDS
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_f631cf05b0406a53e03812c100b445ce = L.polygon(
+                [[-1.2572340425531916, 36.871702127659574], [-1.28, 36.82714285714285], [-1.27, 36.824], [-1.26, 36.84], [-1.2572340425531916, 36.871702127659574]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_10bdec8d2e72324f22c4b70b58e0ba47 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4995df397b557186d7bd01cc5b14bb87 = $(`<div id="html_4995df397b557186d7bd01cc5b14bb87" style="width: 100.0%; height: 100.0%;"><b>STAREHE</b><br>Division Boundary</div>`)[0];
+                popup_10bdec8d2e72324f22c4b70b58e0ba47.setContent(html_4995df397b557186d7bd01cc5b14bb87);
+            
+        
+
+        polygon_f631cf05b0406a53e03812c100b445ce.bindPopup(popup_10bdec8d2e72324f22c4b70b58e0ba47)
+        ;
+
+        
+    
+    
+            polygon_f631cf05b0406a53e03812c100b445ce.bindTooltip(
+                `<div>
+                     STAREHE
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var polygon_5a8e87508ae5c60cec79c48dabfc3bce = L.polygon(
+                [[-1.36, 36.73], [-1.31, 36.70333333333333], [-1.3096969696969696, 36.77818181818182], [-1.31, 36.794117647058826], [-1.316521739130435, 36.82086956521739], [-1.36, 36.73]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
+            ).addTo(feature_group_8b3d6249fd6c46f275e3980398c4f7ee);
+        
+    
+        var popup_7eb387a32a1d5d67d813e508014a3ca8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27bcc9418c65c28b4e15967e6293f8e2 = $(`<div id="html_27bcc9418c65c28b4e15967e6293f8e2" style="width: 100.0%; height: 100.0%;"><b>KIBERA</b><br>Division Boundary</div>`)[0];
+                popup_7eb387a32a1d5d67d813e508014a3ca8.setContent(html_27bcc9418c65c28b4e15967e6293f8e2);
+            
+        
+
+        polygon_5a8e87508ae5c60cec79c48dabfc3bce.bindPopup(popup_7eb387a32a1d5d67d813e508014a3ca8)
+        ;
+
+        
+    
+    
+            polygon_5a8e87508ae5c60cec79c48dabfc3bce.bindTooltip(
+                `<div>
+                     KIBERA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_8b3d6249fd6c46f275e3980398c4f7ee.addTo(map_4685d21126e9fa2a5d0a6afab5c7c302);
+        
+    
+            var layer_control_ed23798d701f2ea5462e98b151a40333_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_1893c6e61c221c708d08c4cb2b7a7695,
+                },
+                overlays :  {
+                    "\ud83d\udccd Locations (by School Density)" : feature_group_6a294ae64bde8e0101107f7023056267,
+                    "\ud83d\uddf3\ufe0f Constituencies" : feature_group_aaeac016573878677eef19b8fb62f184,
+                    "\ud83d\udccb Divisions" : feature_group_8b3d6249fd6c46f275e3980398c4f7ee,
+                },
+            };
+            let layer_control_ed23798d701f2ea5462e98b151a40333 = L.control.layers(
+                layer_control_ed23798d701f2ea5462e98b151a40333_layers.base_layers,
+                layer_control_ed23798d701f2ea5462e98b151a40333_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_4685d21126e9fa2a5d0a6afab5c7c302);
+
+        
+</script>
+</html>
